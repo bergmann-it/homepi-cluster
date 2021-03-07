@@ -1,0 +1,27 @@
+additionalArguments:
+  - --providers.file.filename=/data/traefik-config.yaml
+ports:
+  web:
+    redirectTo: websecure
+env:
+  - name: INWX_USERNAME
+    valueFrom:
+      secretKeyRef:
+        key: username
+        name: inwx-credentials
+  - name: INWX_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        key: password
+        name: inwx-credentials
+ingressRoute:
+  dashboard:
+    enabled: false
+persistence:
+  enabled: true
+  path: /certs
+  size: 128Mi
+volumes:
+  - mountPath: /data
+    name: traefik-config
+    type: configMap

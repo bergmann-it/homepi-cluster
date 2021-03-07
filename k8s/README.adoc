@@ -1,0 +1,29 @@
+= Install K3S on RPI4
+
+== On the RPI
+
+* export K3S_NODE_NAME="homepi"
+* curl -sfL https://get.k3s.io | sh -s - --disable servicelb --disable traefik -i 192.168.8.16
+
+== On the PC
+
+=== Connect to k3s
+
+*  scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config
+*  sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config
+
+=== install Metallb
+
+* kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
+* kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
+* kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+* kubectl apply -f metallb.yaml
+
+=== install traefik
+
+* kubectl create namespace traefik
+* kubectl apply -f traefik-config.yaml
+* kubectl apply -f traefik-secret.yaml
+* helm install traefik traefik/traefik --namespace=traefik --values=traefik-chart-values.yaml
+
+
