@@ -5,9 +5,43 @@ metadata:
   namespace: traefik
 data:
   traefik-config.yaml: |
+    global:
+      checkNewVersion: true
+      sendAnonymousUsage: true
+    serversTransport:
+      maxIdleConnsPerHost: 200
+    entryPoints:
+      traefik:
+        address: ":9000/tcp"
+      web:
+        address: ":8000/tcp"
+        http:
+          redirections:
+            entryPoint:
+              to: ":443"
+              scheme: "https"
+      websecure:
+        address: ":8443/tcp"
+        http:
+          tls:
+            certResolver: leresolver
+    api: 
+      dashboard: true
+    ping:
+      entryPoint: "traefik"
+      terminatingStatusCode: 503
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true
+      kubernetesIngress:
+    accessLog:
+    log:
+      level: INFO
     certificatesResolvers:
-      inwx:
+      leresolver:
         acme:
+          storage: "/certs/acme.json"
+          email: "letsencrypt@cbergmann.net"
           dnsChallenge:
             provider: inwx
-
+            delayBeforeCheck: 0

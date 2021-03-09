@@ -1,8 +1,6 @@
 additionalArguments:
-  - --providers.file.filename=/data/traefik-config.yaml
-ports:
-  web:
-    redirectTo: websecure
+  - --log.level=DEBUG
+  - --configFile=/data/traefik-config.yaml
 env:
   - name: INWX_USERNAME
     valueFrom:

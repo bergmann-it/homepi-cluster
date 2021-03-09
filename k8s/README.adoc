@@ -22,8 +22,23 @@
 === install traefik
 
 * kubectl create namespace traefik
+* helm repo add traefik https://helm.traefik.io/traefik
+* helm repo update
 * kubectl apply -f traefik-config.yaml
 * kubectl apply -f traefik-secret.yaml
 * helm install traefik traefik/traefik --namespace=traefik --values=traefik-chart-values.yaml
 
+=== install cert-manager
 
+* kubectl create namespace cert-manager
+* helm repo add jetstack https://charts.jetstack.io
+* helm repo update
+* helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.2.0 --create-namespace --set installCRDs=true
+* kubectl apply -f certmanager-issuer.yaml 
+
+=== Install Rancher
+
+* kubectl create namespace cattle-system
+* helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+* helm repo update
+* helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.bergmann.click --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=letsencrypt@cbergmann.net --set letsEncrypt.ingress.class=traefik
