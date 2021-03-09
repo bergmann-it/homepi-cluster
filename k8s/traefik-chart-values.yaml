@@ -1,17 +1,6 @@
 additionalArguments:
   - --log.level=DEBUG
   - --configFile=/data/traefik-config.yaml
-env:
-  - name: INWX_USERNAME
-    valueFrom:
-      secretKeyRef:
-        key: username
-        name: inwx-credentials
-  - name: INWX_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        key: password
-        name: inwx-credentials
 ingressRoute:
   dashboard:
     enabled: false

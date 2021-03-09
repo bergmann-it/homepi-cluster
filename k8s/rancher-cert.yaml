@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: rancher-cert
+  name: cert-rancher-ingress
   namespace: cattle-system
 spec:
   dnsNames:
     - rancher.bergmann.click
-  secretName: rancher-cert-tls
+  secretName: tls-rancher-ingress
   issuerRef:
     name: letsencrypt-prod 
     kind: ClusterIssuer

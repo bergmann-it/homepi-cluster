@@ -2,6 +2,13 @@
 
 == On the RPI
 
+=== cleanup
+
+* k3s-uninstall.sh
+* for i in {,6}; do for t in {filter,nat,mangle}; do ip${i}tables -F -t $t; done; done;
+
+=== install k3s
+
 * export K3S_NODE_NAME="homepi"
 * curl -sfL https://get.k3s.io | sh -s - --disable servicelb --disable traefik -i 192.168.8.16
 
@@ -9,8 +16,9 @@
 
 === Connect to k3s
 
-*  scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config
-*  sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config
+* scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config
+* sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config
+* kubectl cluster-info
 
 === install Metallb
 
@@ -27,6 +35,7 @@
 * kubectl apply -f traefik-config.yaml
 * kubectl apply -f traefik-secret.yaml
 * helm install traefik traefik/traefik --namespace=traefik --values=traefik-chart-values.yaml
+* wait for kubectl get pods --all-namespaces to complete
 
 === install cert-manager
 
@@ -39,6 +48,7 @@
 === Install Rancher
 
 * kubectl create namespace cattle-system
+* kubectl apply -f rancher-cert.yaml
 * helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 * helm repo update
-* helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.bergmann.click --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=letsencrypt@cbergmann.net --set letsEncrypt.ingress.class=traefik
+* helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.bergmann.click --set ingress.tls.source=secret --set ingress.extraAnnotations.'certmanager\.io/cluster-issuer'=letsencrypt-prod --set ingress.extraAnnotations.'kubernetes\.io/ingress\.class'=traefik  

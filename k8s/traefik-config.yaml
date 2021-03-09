@@ -23,10 +23,10 @@ data:
       websecure:
         address: ":8443/tcp"
         http:
-          tls:
-            certResolver: leresolver
+          tls: {}
     api: 
       dashboard: true
+      insecure: true
     ping:
       entryPoint: "traefik"
       terminatingStatusCode: 503
@@ -34,14 +34,9 @@ data:
       kubernetesCRD:
         allowCrossNamespace: true
       kubernetesIngress:
+        ingressClass: traefik
     accessLog:
     log:
       level: INFO
-    certificatesResolvers:
-      leresolver:
-        acme:
-          storage: "/certs/acme.json"
-          email: "letsencrypt@cbergmann.net"
-          dnsChallenge:
-            provider: inwx
-            delayBeforeCheck: 0
+    metrics:
+      prometheus: {}

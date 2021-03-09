@@ -29,18 +29,25 @@ spec:
    selector:
       app: whoami-app
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
-  name: ingressroutetls
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/rule-type: "PathPrefixStrip"
+  name: whoami-ingress
 spec:
-  entryPoints:
-    - websecure
-  routes:
-  - match: Host(`k8s.bergmann.click`)
-    kind: Rule
-    services:
-    - name: whoami-app
-      port: 80
+  spec:
+  rules:
+  - host: k8s.bergmann.click
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: whoami-app
+          servicePort: 80
   tls:
-    certResolver: leresolver
+  - hosts:
+    - k8s.bergmann.click
+    secretName: whoami-cert
