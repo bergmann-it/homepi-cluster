@@ -1,0 +1,85 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: traefik
+  name: legacy-proxy
+  namespace: default
+spec:
+  rules:
+  - host: hass.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: homepi-service
+            port:
+              number: 8123
+        path: /
+        pathType: Prefix
+  - host: deconz.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: homepi-service
+            port:
+              number: 8081
+        path: /
+        pathType: Prefix
+  - host: gw-1.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: gw-service
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - hass.bergmann.click
+    secretName: hass-cert
+  - hosts:
+    - deconz.bergmann.click
+    secretName: deconz-cert
+  - hosts:
+    - gw-1.bergmann.click
+    secretName: gw1-cert
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homepi-service
+  namespace: default
+spec:
+  externalName: homepi.bergmann.click
+  ports:
+  - name: http-hass
+    port: 8123
+    protocol: TCP
+    targetPort: 8123
+  - name: http-deconz
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+  sessionAffinity: None
+  type: ExternalName
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gw-service
+  namespace: default
+spec:
+  externalName: gw-1.bergmann.click
+  ports:
+  - name: https-gw
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  sessionAffinity: None
+  type: ExternalName
