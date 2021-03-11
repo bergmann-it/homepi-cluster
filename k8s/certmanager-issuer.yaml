@@ -9,12 +9,16 @@ spec:
       name: prod-issuer-account-key
     server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
-      - http01:
-          ingress:
-            class: traefik
-            ingressTemplate:
-              metadata:
-                annotations:
-                  "traefik.ingress.kubernetes.io/router.tls": "true"
-                  "traefik.ingress.kubernetes.io/frontend-entry-points": "https"
-        selector: {}
+      - dns01:
+          webhook:
+            groupName: cert-manager-webhook-inwx.smueller18.gitlab.com
+            solverName: inwx
+            config:
+              ttl: 300 # default 300
+              sandbox: false # default false
+              usernameSecretKeyRef:
+                name: inwx-credentials
+                key: username
+              passwordSecretKeyRef:
+                name: inwx-credentials
+                key: password

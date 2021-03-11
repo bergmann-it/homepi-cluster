@@ -33,7 +33,6 @@
 * helm repo add traefik https://helm.traefik.io/traefik
 * helm repo update
 * kubectl apply -f traefik-config.yaml
-* kubectl apply -f traefik-secret.yaml
 * helm install traefik traefik/traefik --namespace=traefik --values=traefik-chart-values.yaml
 * wait for kubectl get pods --all-namespaces to complete
 
@@ -43,7 +42,15 @@
 * helm repo add jetstack https://charts.jetstack.io
 * helm repo update
 * helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.2.0 --create-namespace --set installCRDs=true --set 'extraArgs={--dns01-recursive-nameservers-only,--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}'
+* helm repo add smueller18 https://smueller18.gitlab.io/helm-charts
+* helm repo update
+* helm install --namespace cert-manager cert-manager-webhook-inwx smueller18/cert-manager-webhook-inwx
+* kubectl apply -f issuer-secret.yaml
 * kubectl apply -f certmanager-issuer.yaml 
+
+=== Install default cert
+
+* kubectl apply -f default-cert.yaml
 
 === Install Rancher
 
