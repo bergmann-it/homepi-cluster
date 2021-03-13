@@ -8,4 +8,4 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: traefik
-#    traefik.ingress.kubernetes.io/router.middlewares: longhorn-system-ingressauth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: longhorn-system-ingressauth@kubernetescrd

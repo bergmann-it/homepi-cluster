@@ -67,6 +67,7 @@
 * helm repo update
 * kubectl create namespace longhorn-system
 * kubectl apply  -f longhorn-auth.yaml
+* kubectl apply  -f longhorn-middleware.yaml
 * helm install longhorn longhorn/longhorn --namespace longhorn-system --values=longhorn-chart-values.yaml
 * kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 * kubectl apply -f longhorn-storageclass.yaml 
@@ -74,3 +75,7 @@
 === Ingress for legacy Services
 
 * kubectl apply -f legacy-proxy.yaml
+
+=== Display service
+
+* kubectl apply -f display.yaml
