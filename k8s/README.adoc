@@ -47,7 +47,8 @@
 * helm repo update
 * helm install --namespace cert-manager cert-manager-webhook-inwx smueller18/cert-manager-webhook-inwx
 * kubectl apply -f issuer-secret.yaml
-* kubectl apply -f certmanager-issuer.yaml 
+* kubectl apply -f certmanager-issuer.yaml
+* helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --reuse-values --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer --set ingressShim.defaultIssuerGroup=cert-manager.io
 
 === Install default cert
 
