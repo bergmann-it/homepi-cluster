@@ -1,0 +1,54 @@
+persistence:
+  enabled: true
+timezone: 'Europe/Berlin'
+image:
+  tag: '6.0.45'
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - unifi.bergmann.click
+  tls:
+    - hosts:
+      - unifi.bergmann.click
+      secretName: unifi-cert
+guiService:
+  enabled: true
+  port: 8443
+captivePortalService:
+  enabled: true
+  port: 8880
+  https: 8843
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      traefik.ingress.kubernetes.io/router.entrypoints: unificaptive, unificaptives
+    hosts:
+      - wifi.bergmann.click
+    tls:
+      - hosts:
+        - wifi.bergmann.click
+        secretName: wifi-cert
+controllerService:
+  enabled: true
+  type: "LoadBalancer"
+  annotations:
+    metallb.universe.tf/allow-shared-ip: unifi
+discoveryService:
+  enabled: true
+  type: "LoadBalancer"
+  annotations:
+    metallb.universe.tf/allow-shared-ip: unifi
+stunService:
+  enabled: true
+  type: "LoadBalancer"
+  annotations:
+    metallb.universe.tf/allow-shared-ip: unifi
+syslogService:
+  enabled: false
+speedtestService:
+  enabled: false

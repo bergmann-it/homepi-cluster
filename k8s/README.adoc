@@ -59,7 +59,7 @@
 * kubectl apply -f rancher-cert.yaml
 * helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 * helm repo update
-* helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.bergmann.click --set ingress.tls.source=secret --set ingress.extraAnnotations.'certmanager\.io/cluster-issuer'=letsencrypt-prod --set ingress.extraAnnotations.'kubernetes\.io/ingress\.class'=traefik  
+* helm install rancher rancher-latest/rancher --namespace cattle-system --values=rancher-chart-values.yaml
 
 === Install Longhorn
 
@@ -79,3 +79,9 @@
 === Display service
 
 * kubectl apply -f display.yaml
+
+=== Unifi Controller
+
+* helm repo add k8s-at-home https://k8s-at-home.com/charts/
+* helm repo update 
+* helm install unifi k8s-at-home/unifi -f unifi-chart-values.yaml
