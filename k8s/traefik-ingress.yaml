@@ -1,0 +1,48 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ingressauth
+  namespace: traefik
+spec:
+  basicAuth:
+    secret: traefik-auth
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-ingressauth@kubernetescrd
+  name: traefik
+  namespace: traefik
+spec:
+  rules:
+  - host: traefik.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: traefik-gui
+            port:
+              number: 9000
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - traefik.bergmann.click
+    secretName: traefik-cert
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-gui
+  namespace: traefik
+spec:
+  ports:
+  - name: http-treafik
+    port: 9000
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app.kubernetes.io/name: traefik

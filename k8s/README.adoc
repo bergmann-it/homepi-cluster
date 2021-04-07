@@ -54,6 +54,11 @@
 
 * kubectl apply -f default-cert.yaml
 
+=== install treafik ingress
+
+* kubectl apply  -f traefik-auth.yaml
+* kubectl apply -f traefik-ingress.yaml
+
 === Install Rancher
 
 * kubectl create namespace cattle-system
