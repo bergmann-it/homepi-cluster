@@ -1,0 +1,3 @@
+= cert-manager
+
+This namespace contains all things related to link:https://cert-manager.io/[cert-manager].

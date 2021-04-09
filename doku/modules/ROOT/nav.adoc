@@ -1,0 +1,7 @@
+* xref:index.adoc[General]
+* xref:hardware.adoc[Hardware]
+* xref:bootstrap.adoc[Bootstrap]
+* xref:secrets.adoc[Secrets]
+* xref:namespaces/index.adoc[Namespaces]
+include::partial$namespaces.adoc[]
+

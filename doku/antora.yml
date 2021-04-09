@@ -1,0 +1,7 @@
+name: k8s
+title: Kubernetes Cluster
+version: master
+display_version: WIP
+start_page: ROOT:index.adoc
+nav:
+- modules/ROOT/nav.adoc

@@ -1,0 +1,29 @@
+= Bootstrap
+
+This page describes how to setup the K3S cluster on the Raspberry Pi and how to connect to the cluster on my pc.
+
+Thereafter xref:index.adoc#flux2[Flux2] should do the rest of the setup.
+
+== On the RPI
+
+=== install k3s
+
+* export K3S_NODE_NAME="homepi"
+* curl -sfL https://get.k3s.io | sh -s - --disable servicelb --disable traefik -i 192.168.8.16
+* apt-get install open-iscsi nfs-common
+
+=== cleanup
+
+* k3s-uninstall.sh
+* for i in {,6}; do for t in {filter,nat,mangle}; do ip${i}tables -F -t $t; done; done;
+
+
+== On the PC
+
+=== Connect to k3s
+
+* scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config
+* sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config
+* kubectl cluster-info
+
+

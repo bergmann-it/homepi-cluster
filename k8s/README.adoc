@@ -1,26 +1,3 @@
-= Install K3S on RPI4
-
-== On the RPI
-
-=== cleanup
-
-* k3s-uninstall.sh
-* for i in {,6}; do for t in {filter,nat,mangle}; do ip${i}tables -F -t $t; done; done;
-
-=== install k3s
-
-* export K3S_NODE_NAME="homepi"
-* curl -sfL https://get.k3s.io | sh -s - --disable servicelb --disable traefik -i 192.168.8.16
-* apt-get install open-iscsi nfs-common
-
-== On the PC
-
-=== Connect to k3s
-
-* scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config
-* sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config
-* kubectl cluster-info
-
 === Install Metallb
 
 * kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
