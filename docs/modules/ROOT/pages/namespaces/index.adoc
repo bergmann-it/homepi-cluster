@@ -1,4 +1,4 @@
 Here I describe the namespaces in the k8s cluster. This only describes the technical setup of the k8s components and CRDs. The functional description of the services run within these namespaces is described on the xref:it::services/index.adoc[services page]. 
-The definition of these namespaces can be found in the link:https://github.com/cbergmann/homepi/tree/main/cluster[cluster directory].
+The definition of these namespaces can be found in the link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster[cluster directory].
 
 include::partial$namespaces.adoc[]
