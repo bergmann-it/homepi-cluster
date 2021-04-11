@@ -19,4 +19,4 @@ If you have any question feel free to open an link:https://github.com/bergmann-i
 
 == :handshake: Thanks
 
-All this is inspired by the people behind link:https://k8s-at-home.com/[k8s at home] and the clusters shared at link:https://github.com/k8s-at-home/awesome-home-kubernetes[awesome-home-kubernetes].
+All this is inspired by the people behind link:https://k8s-at-home.com/[k8s at home] and the clusters shared at link:https://github.com/k8s-at-home/awesome-home-kubernetes[awesome-home-kubernetes] or via  the link:https://github.com/topics/k8s-at-home[k8s-at-home topic].
