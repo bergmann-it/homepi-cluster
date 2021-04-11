@@ -2,4 +2,13 @@
 
 Welcome to the documentation of my kubernetes cluster.
 
+This cluster is running link:https://k3s.io[k3s] on the xref:hardware.adoc[hardware].
+
+
+== renovate bot emoji:robot_face[] 
+
+The cluster is monitored by link:https://renovatebot.com[renovate bot].
+The bot is configured with the link:https://github.com/bergmann-it/homepi-cluster/blob/main/.github/renovate.json5[config file] and manages a link:https://github.com/bergmann-it/homepi-cluster/issues/1[dashboard issue] with an overview of all open issues.
+A list of renovate jobs can be found in the link:https://app.renovatebot.com/dashboard#github/bergmann-it/homepi-cluster[renovatebot dashboard].
+
 
