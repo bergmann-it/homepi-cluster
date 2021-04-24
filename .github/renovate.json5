@@ -83,6 +83,18 @@
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/helm", "dep/patch"]
     },
+
+    //enable automerge
+     {
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackagePrefixes": [
+        "ghcr.io/fluxcd/",
+     ],
+    },
   ]
 }
 
