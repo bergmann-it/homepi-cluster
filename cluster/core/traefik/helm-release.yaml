@@ -1,0 +1,68 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.bitnami.com/bitnami
+      chart: traefik
+      version: 9.18.2
+      sourceRef:
+        kind: HelmRepository
+        name: traefik-charts
+        namespace: flux-system
+  values:
+    additionalArguments:
+      - --log.level=DEBUG
+      - --configFile=/data/traefik-config.yaml
+    ingressRoute:
+      dashboard:
+        enabled: false
+    ports:
+      traefik:
+        port: 9000
+        expose: false
+        exposedPort: 9000
+        protocol: TCP
+      web:
+        port: 8000
+        expose: true
+        exposedPort: 80
+        protocol: TCP
+      websecure:
+        port: 8443
+        expose: true
+        exposedPort: 443
+        protocol: TCP
+        tls:
+          enabled: false
+          options: ""
+          certResolver: ""
+          domains: []
+      unificaptive:
+        port: 8881
+        expose: true
+        exposedPort: 8880
+        protocol: TCP
+      unificaptives:
+        port: 8844
+        expose: true
+        exposedPort: 8843
+        protocol: TCP
+        tls:
+          enabled: false
+    service:
+      annotations:
+        metallb.universe.tf/allow-shared-ip: traefik
+    persistence:
+      enabled: true
+      path: /certs
+      size: 128Mi
+    volumes:
+      - mountPath: /data
+        name: traefik-config
+        type: configMap

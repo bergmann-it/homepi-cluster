@@ -1,6 +1,0 @@
-hostnam: rancher.bergmann.click
-ingress:
-  tls:
-    source: secret
-  extraAnnotations:
-    certmanager.io/cluster-issuer: letsencrypt-prod

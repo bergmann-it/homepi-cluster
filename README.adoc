@@ -13,6 +13,9 @@ _... managed by Flux and serviced with RenovateBot :robot:_
 == :book: Overview
 
 This is repository declares the state of my home kubernetes cluster.
+
+It is built off the link:https://github.com/k8s-at-home/template-cluster-k3s[k8s-at-home/template-cluster-k3s] repository.
+
 Details on it's setup and initial configuration can be found on the link:https://doku.bergmann.click/k8s/[documentation site].
 
 If you have any question feel free to open an link:https://github.com/bergmann-it/homepi-cluster/issues/new[issue] or link:https://github.com/bergmann-it/homepi-cluster/compare[pull request].
