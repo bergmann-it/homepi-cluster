@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://charts.bitnami.com/bitnami
+      # renovate: registryUrl=https://helm.traefik.io/traefik
       chart: traefik
       version: 9.18.2
       sourceRef:
