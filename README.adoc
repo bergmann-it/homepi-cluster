@@ -23,3 +23,13 @@ If you have any question feel free to open an link:https://github.com/bergmann-i
 == :handshake: Thanks
 
 All this is inspired by the people behind link:https://k8s-at-home.com/[k8s at home] and the clusters shared at link:https://github.com/k8s-at-home/awesome-home-kubernetes[awesome-home-kubernetes] or via  the link:https://github.com/topics/k8s-at-home[k8s-at-home topic].
+
+== Initial setup
+
+* `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host 192.168.8.16 --k3s-extra-args="--disable servicelb --disable traefik" --ip 192.168.8.16 --k3s-version=v1.21.0+k3s1`
+* `mv kubeconfig ~/.config/kube/config`
+* `flux check --pre`
+* `kubectl create namespace flux-system`
+* get secret key file 'sops.gpg' from 1password
+* `kubectl create secret generic sops-gpg -n flux-system --from-file sops.asc=sops.gpg`
+* `kubectl apply --kustomize=./cluster/base/flux-system`
