@@ -4,26 +4,16 @@ This page describes how to setup the K3S cluster on the Raspberry Pi and how to 
 
 Thereafter xref:index.adoc#flux2[Flux2] should do the rest of the setup.
 
-== On the RPI
+== Initial setup
 
-=== install k3s
+* `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host 192.168.8.16 --k3s-extra-args="--disable servicelb --disable traefik" --ip 192.168.8.16 --k3s-version=v1.21.0+k3s1 --local-path ~/.config/kube/config`
+* `flux check --pre`
+* `kubectl create namespace flux-system`
+* get secret key file 'sops.gpg' from 1password
+* `kubectl create secret generic sops-gpg -n flux-system --from-file sops.asc=sops.gpg`
+* `kubectl apply --kustomize=./cluster/base/flux-system`
 
-* `+export K3S_NODE_NAME="homepi"+`
-* `+curl -sfL https://get.k3s.io | sh -s - --disable servicelb --disable traefik -i 192.168.8.16+`
-* `+apt-get install open-iscsi nfs-common+`
+== cleanup
 
-=== cleanup
-
-* `+k3s-uninstall.sh+`
-* `+for i in {,6}; do for t in {filter,nat,mangle}; do ip${i}tables -F -t $t; done; done;+`
-
-
-== On the PC
-
-=== Connect to k3s
-
-* `+scp homepi:/etc/rancher/k3s/k3s.yaml ~/.config/kube/config+`
-* `+sed 's/127.0.0.1/192.168.8.16/g' -i ~/.config/kube/config+`
-* `+kubectl cluster-info+`
-
+If you want to start fresh call `+k3s-uninstall.sh+` on the Raspberry Pi.
 
