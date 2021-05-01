@@ -4,3 +4,4 @@ resources:
 - default
 - system-upgrade
 - cattle-system
+- traefik
