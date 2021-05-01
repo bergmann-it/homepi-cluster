@@ -9,7 +9,7 @@ spec:
     - "*.k8s.bergmann.click"
   secretName: tls-wildcard-default
   issuerRef:
-    name: letsencrypt-prod 
+    name: letsencrypt-dns 
     kind: ClusterIssuer
 ---
 apiVersion: traefik.containo.us/v1alpha1
