@@ -8,3 +8,4 @@ resources:
 - k8s-at-home-charts.yaml
 - rancher-charts.yaml
 - longhorn-charts.yaml
+- minio-charts.yaml
