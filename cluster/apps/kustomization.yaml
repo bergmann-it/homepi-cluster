@@ -5,4 +5,5 @@ resources:
 - system-upgrade
 - cattle-system
 - traefik
-- minio
+- minio-operator
+- minio-backup
