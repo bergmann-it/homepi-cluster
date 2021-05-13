@@ -6,4 +6,4 @@ resources:
 - cattle-system
 - traefik
 - minio-operator
-- minio-backup
+- minio-s3
