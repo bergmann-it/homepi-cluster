@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: s3-ingress
+  namespace: minio-s3
+spec:
+  rules:
+  - host: s3.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: minio
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - s3.bergmann.click
+    secretName: tls-s3-ingress 
+

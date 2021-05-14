@@ -5,3 +5,4 @@ resources:
 - backup-pv.yaml
 - secret.enc.yaml
 - tenant.yaml
+- ingress.yaml
