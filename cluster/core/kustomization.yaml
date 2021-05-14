@@ -6,5 +6,4 @@ resources:
 - traefik
 - cert-manager
 - flux-system
-- longhorn-system
 - system-upgrade
