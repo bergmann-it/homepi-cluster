@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: cert-backup-ingress
+  name: cert-s3-ingress
   namespace: minio-s3
 spec:
   dnsNames:
-    - backup.bergmann.click
+    - s3.bergmann.click
   secretName: tls-backup-ingress
   issuerRef:
     name: letsencrypt-prod

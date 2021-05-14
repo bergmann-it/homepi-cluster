@@ -4,3 +4,4 @@ resources:
 - s3-cert.yaml
 - backup-pv.yaml
 - secret.enc.yaml
+- tenant.yaml
