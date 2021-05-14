@@ -14,9 +14,9 @@ spec:
     path: "/srv/minio-backup" #host location
   nodeAffinity:
     required:
-       nodeSelectorTerms:
-       - matchExpressions:
-       - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - homepi
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - homepi
