@@ -162,7 +162,7 @@ spec:
   console:
     replicas: 1
     externalCertSecret:
-      name: cert-s3-ingress
+      name: tls-s3-ingress
       type: kubernetes.io/tls
     consoleSecret:
       name: console-secret

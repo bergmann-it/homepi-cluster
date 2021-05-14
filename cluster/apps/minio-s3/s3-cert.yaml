@@ -6,7 +6,7 @@ metadata:
 spec:
   dnsNames:
     - s3.bergmann.click
-  secretName: tls-backup-ingress
+  secretName: tls-s3-ingress
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
