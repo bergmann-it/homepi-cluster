@@ -6,4 +6,3 @@ resources:
 - traefik.yaml
 - cattle-system.yaml
 - longhorn-system.yaml
-- minio.yaml
