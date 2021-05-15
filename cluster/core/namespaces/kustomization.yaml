@@ -5,3 +5,4 @@ resources:
 - metallb-system.yaml
 - traefik.yaml
 - cattle-system.yaml
+- rook-ceph.yaml
