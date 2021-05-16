@@ -12,41 +12,38 @@ spec:
   skipUpgradeChecks: false
   continueUpgradeAfterChecksEvenIfNotHealthy: false
   removeOSDsIfOutAndSafeToRemove: false
-  mon:
-    count: 1
-    allowMultiplePerNode: false
+  dashboard:
+    enabled: true
+    port: 7000
+    ssl: false
   monitoring:
     enabled: true
     rulesNamespace: rook-ceph
   network:
+  mon:
+    count: 1
+    allowMultiplePerNode: true
+  mgr:
+    count: 1
+    allowMultiplePerNode: true
+    modules:
+    - name: pg_autoscaler
+      enabled: true
   crashCollector:
-    disable: false
+    disable: true
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+    nodes:
+    - name: "homepi"
+      devices:
+      - name: "/dev/vg_rpi/ceph"
+  disruptionManagement:
+    managePodBudgets: true
   cleanupPolicy:
     confirmation: ""
     sanitizeDisks:
       method: quick
       dataSource: zero
       iteration: 1
-  mgr:
-    modules:
-    - name: pg_autoscaler
-      enabled: true
-  dashboard:
-    enabled: true
-    port: 7000
-    ssl: false
-  disruptionManagement:
-    managePodBudgets: false
-    osdMaintenanceTimeout: 30
-    manageMachineDisruptionBudgets: false
-    machineDisruptionBudgetNamespace: openshift-machine-api
-  storage:
-    useAllNodes: false
-    useAllDevices: false
-    config:
-      metadataDevice:
-      osdsPerDevice: "1"
-    nodes:
-    - name: "homepi"
-      devices:
-      - name: "/dev/vg_rpi/ceph"
+ 
