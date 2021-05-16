@@ -37,7 +37,7 @@ spec:
     nodes:
     - name: "homepi"
       devices:
-      - name: "/dev/vg_rpi/ceph"
+      - name: "/dev/vg_rpi/ceph-bd"
   disruptionManagement:
     managePodBudgets: true
   cleanupPolicy:
