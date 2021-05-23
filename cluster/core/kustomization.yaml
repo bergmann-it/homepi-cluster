@@ -7,4 +7,4 @@ resources:
 - cert-manager
 - flux-system
 - system-upgrade
-- rook-ceph
+#- rook-ceph
