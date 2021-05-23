@@ -55,7 +55,7 @@ metadata:
   name: homepi-service
   namespace: default
 spec:
-  externalName: homepi.bergmann.click
+  externalName: homepi.home.bergmann.click
   ports:
   - name: http-hass
     port: 8123
@@ -74,7 +74,7 @@ metadata:
   name: gw-service
   namespace: default
 spec:
-  externalName: gw-1.bergmann.click
+  externalName: gw-1.home.bergmann.click
   ports:
   - name: https-gw
     port: 443
