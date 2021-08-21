@@ -6,6 +6,8 @@ Thereafter xref:index.adoc#flux2[Flux2] should do the rest of the setup.
 
 == Initial Setup
 
+These commands are all executed on the local host. The first one reques ssh access to the raspberry Pi on IP 192.168.8.16.
+
 * `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host 192.168.8.16 --k3s-extra-args="--disable servicelb --disable traefik" --ip 192.168.8.16 --k3s-version=v1.21.0+k3s1 --local-path ~/.config/kube/config`
 * `flux check --pre`
 * `kubectl create namespace flux-system`
