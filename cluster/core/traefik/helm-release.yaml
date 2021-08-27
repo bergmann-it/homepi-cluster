@@ -17,7 +17,7 @@ spec:
         namespace: flux-system
   values:
     additionalArguments:
-      - --log.level=DEBUG
+      - --log.level=INFO
       - --configFile=/data/traefik-config.yaml
     ingressRoute:
       dashboard:
