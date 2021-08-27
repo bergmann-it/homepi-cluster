@@ -40,7 +40,8 @@ data:
     providers:
       kubernetesCRD:
         allowCrossNamespace: true
-      kubernetesIngress: {}
+      kubernetesIngress:
+        allowExternalNameServices: true
     accessLog:
     log:
       level: INFO
