@@ -46,4 +46,9 @@ spec:
       method: quick
       dataSource: zero
       iteration: 1
- 
+  healthCheck:
+    livenessProbe:
+      mgr:
+        disabled: false
+        probe:
+          timeoutSeconds: 10
