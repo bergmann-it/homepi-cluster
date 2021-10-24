@@ -51,4 +51,12 @@ spec:
       mgr:
         disabled: false
         probe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 9283
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
           timeoutSeconds: 10
