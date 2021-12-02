@@ -5,9 +5,7 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  METALLB_LB_RANGE: "192.168.8.32/27"
+  METALLB_LB_RANGE_V4: "192.168.8.32/27"
+  METALLB_LB_RANGE_V6: "fd6b:b175:9ccf:c8::1:32/123"
   BGP_ROUTER: "192.168.8.1"
   BGP_ASN: "64512"
-  NODE_MASTER: "192.168.8.16"
-  LB_INGRESS: "192.168.8.32"
-  LB_UNIFI: "192.168.8.33"

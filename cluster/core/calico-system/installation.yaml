@@ -1,0 +1,20 @@
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  cni:
+    ipam:
+      type: calico-ipam
+      assign_ipv4: true
+      assign_ipv6: true
+  calicoNetwork:
+    nodeAddressAutodetectionV6: 
+      interface: eth0
+    nodeAddressAutodetectionV4:
+      interface: eth0
+    ipPools:
+      - cidr: 10.42.0.0/16
+        encapsulation: None
+      - cidr: fd53:f3c0:fefd::/48
+        encapsulation: None

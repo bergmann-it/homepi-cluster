@@ -35,4 +35,5 @@ spec:
       - name: default
         protocol: bgp
         addresses:
-        - "${METALLB_LB_RANGE}"
+        - "${METALLB_LB_RANGE_V4}"
+        - "${METALLB_LB_RANGE_V6}"
