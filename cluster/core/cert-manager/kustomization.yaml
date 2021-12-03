@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- letsencrypt-prod.yaml
-- letsencrypt-dns.yaml
 - helm-release.yaml
 - secret.enc.yaml
 - helm-inwx.yaml
+- letsencrypt-prod.yaml
+- letsencrypt-dns.yaml
