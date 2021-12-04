@@ -8,7 +8,7 @@ Thereafter xref:index.adoc#flux2[Flux2] should do the rest of the setup.
 
 These commands are all executed on the local host. The first one reques ssh access to the raspberry Pi on IP 192.168.8.16.
 
-* `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host homepi.home.bergmann.click --k3s-extra-args="--disable servicelb --disable metrics-server --disable-cloud-controller --disable-network-policy --kube-proxy-arg proxy-mode=ipvs --disable traefik --flannel-backend none --cluster-cidr 10.42.0.0/16,fd53:f3c0:fefd::/48 --service-cidr 10.43.0.0/16,fde2:37f0:b85f::/112 --node-ip 192.168.8.16,fd6b:b175:9ccf:00c8::16" --k3s-channel stable --local-path ~/.config/kube/config`
+* `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host homepi.home.bergmann.click --k3s-extra-args="--disable servicelb --disable metrics-server --disable-cloud-controller --disable-network-policy --kube-proxy-arg proxy-mode=ipvs --disable traefik --disable local-storage --flannel-backend none --cluster-cidr 10.42.0.0/16,fd53:f3c0:fefd::/48 --service-cidr 10.43.0.0/16,fde2:37f0:b85f::/112 --node-ip 192.168.8.16,fd6b:b175:9ccf:00c8::16" --k3s-channel stable --local-path ~/.config/kube/config`
 * `kubectl apply --kustomize=./cluster/base/calico-system`
 * `flux check --pre`
 * `kubectl create namespace flux-system`
