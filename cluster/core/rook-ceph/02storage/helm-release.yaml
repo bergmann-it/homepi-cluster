@@ -22,9 +22,6 @@ spec:
         enabled: true
         port: 7000
         ssl: false
-      monitoring:
-        enabled: true
-        rulesNamespace: rook-ceph
       mon:
         count: 1
       mgr:
