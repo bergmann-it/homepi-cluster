@@ -16,8 +16,6 @@ spec:
         name: rook-ceph-charts
         namespace: flux-system
   values:
-    crds:
-      enabled: false
     csi:
       kubeletDirPath: /var/lib/kubelet
       pluginTolerations:

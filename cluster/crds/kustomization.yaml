@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - cert-manager
 - external-snapshotter
-- rook-ceph
 - traefik

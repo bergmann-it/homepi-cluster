@@ -58,11 +58,6 @@ spec:
     service:
       annotations:
         metallb.universe.tf/allow-shared-ip: traefik
-      spec:
-        ipFamilyPolicy: RequireDualStack
-      externalIPs:
-        - 192.168.8.32
-        - fd6b:b175:9ccf:c8::1:32 
     persistence:
       enabled: true
       path: /certs

@@ -1,8 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- rbac.yaml
-- helm-release.yaml
-- storage
-- snapshot-controller
-- dashboard
+- 01operator
+- 02storage
+- 03snapshot-controller
+- 04dashboard

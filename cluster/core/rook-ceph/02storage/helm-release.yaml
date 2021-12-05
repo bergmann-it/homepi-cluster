@@ -1,0 +1,78 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rook-ceph-cluster
+  namespace: rook-ceph
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.rook.io/release
+      chart: rook-ceph-cluster
+      version: v1.7.9
+      sourceRef:
+        kind: HelmRepository
+        name: rook-ceph-charts
+        namespace: flux-system
+  values:
+    cephClusterSpec:
+      dataDirHostPath: /var/lib/rook
+      dashboard:
+        enabled: true
+        port: 7000
+        ssl: false
+      monitoring:
+        enabled: true
+        rulesNamespace: rook-ceph
+      mon:
+        count: 1
+      mgr:
+        modules:
+        - name: pg_autoscaler
+          enabled: true
+      crashCollector:
+        disable: true
+      storage:
+        useAllNodes: false
+        useAllDevices: false
+        nodes:
+        - name: "homepi"
+          devices:
+          - name: "/dev/vg_rpi/ceph-bd"
+      healthCheck:
+        livenessProbe:
+          mgr:
+            disabled: false
+            probe:
+              failureThreshold: 3
+              httpGet:
+                path: /
+                port: 9283
+                scheme: HTTP
+              initialDelaySeconds: 120
+    cephBlockPools:
+    - name: replicapool
+      spec: 
+        failureDomain: host
+        replicated:
+          size: 1
+          requireSafeReplicaSize: false
+      storageClass:
+        name: rook-ceph-block
+        isDefault: true
+    cephFileSystems:
+    - name: cephfs
+      spec:
+        metadataPool:
+          replicated:
+            size: 1
+        dataPools:
+        - replicated:
+            size: 1
+        preserveFilesystemOnDelete: false
+        metadataServer:
+          activeCount: 1
+          activeStandby: true
+      storageClass:
+        name: rook-cephfs
