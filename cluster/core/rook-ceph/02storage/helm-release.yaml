@@ -24,7 +24,10 @@ spec:
         ssl: false
       mon:
         count: 1
+        allowMultiplePerNode: true
       mgr:
+        count: 1 
+        allowMultiplePerNode: true
         modules:
         - name: pg_autoscaler
           enabled: true
@@ -33,11 +36,17 @@ spec:
       storage:
         useAllNodes: false
         useAllDevices: false
+        databaseSizeMB: "1024"
+        journalSizeMB: "1024"
         nodes:
         - name: "homepi"
           devices:
           - name: "/dev/vg_rpi/ceph-bd"
       healthCheck:
+        daemonHealth:
+          mon:
+            interval: 45s
+            timeout: 600s
         livenessProbe:
           mgr:
             disabled: false
@@ -48,6 +57,10 @@ spec:
                 port: 9283
                 scheme: HTTP
               initialDelaySeconds: 120
+      disruptionManagement:
+        managePodBudgets: true
+    monitoring:
+      enabled: true
     cephBlockPools:
     - name: replicapool
       spec: 
@@ -55,9 +68,6 @@ spec:
         replicated:
           size: 1
           requireSafeReplicaSize: false
-      storageClass:
-        name: rook-ceph-block
-        isDefault: true
     cephFileSystems:
     - name: cephfs
       spec:
@@ -71,5 +81,3 @@ spec:
         metadataServer:
           activeCount: 1
           activeStandby: true
-      storageClass:
-        name: rook-cephfs
