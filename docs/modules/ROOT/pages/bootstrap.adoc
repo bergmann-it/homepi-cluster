@@ -30,5 +30,8 @@ This is done in the following stages:
 
 == cleanup
 
-If you want to start fresh call `+k3s-uninstall.sh+` on the Raspberry Pi. You also have to delete cni config by calling `+rm -rf /etc/cni+`
+If you want to start fresh the following must be called on the Raspberry Pi:
+* `k3s-uninstall.sh`
+* `rm -rf /etc/cni`
+* `rm -rf /var/lib/rook/*`
 
