@@ -118,6 +118,13 @@ spec:
             failureDomain: host
             replicated:
               size: 1
+          healthCheck:
+            ReadinessProbe:
+              probe:
+                initialDelaySeconds: 30
+            livenessProbe:
+              probe:
+                initialDelaySeconds: 30
           dataPool:
             failureDomain: host
             replicated:
