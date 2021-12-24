@@ -58,6 +58,7 @@ spec:
     service:
       annotations:
         metallb.universe.tf/allow-shared-ip: traefik
+      ipFamilyPolicy: RequireDualStack
     persistence:
       enabled: false
       path: /certs

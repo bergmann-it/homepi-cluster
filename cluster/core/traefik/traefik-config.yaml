@@ -27,6 +27,7 @@ data:
             entryPoint:
               to: ":443"
               scheme: "https"
+              priority: 10
       websecure:
         address: ":8443/tcp"
         http:
