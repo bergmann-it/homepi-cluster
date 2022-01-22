@@ -17,56 +17,44 @@ spec:
         namespace: flux-system
   values:
     persistence:
-      enabled: true
-    timezone: 'Europe/Berlin'
+      data:
+        enabled: true
+        mountPath: /unifi
+    env:
+      TZ: 'Europe/Berlin'
     image:
       tag: '6.0.45'
     ingress:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-      hosts:
-        - unifi.bergmann.click
-      tls:
-        - hosts:
-          - unifi.bergmann.click
-          secretName: unifi-cert
-    guiService:
-      enabled: true
-      port: 8443
-    captivePortalService:
-      enabled: true
-      port: 8880
-      https: 8843
-      annotations:
-        traefik.ingress.kubernetes.io/service.serversscheme: https
-      ingress:
+      main:
         enabled: true
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          traefik.ingress.kubernetes.io/router.entrypoints: unificaptive, unificaptives
         hosts:
-          - wifi.bergmann.click
+          - unifi.bergmann.click
+        tls:
+          - hosts:
+            - unifi.bergmann.click
+            secretName: unifi-cert
+      portal:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+        hosts:
+          - host: wifi.bergmann.click
+#            paths:
+#              - path: /
+#                pathType: Prefix
+#                service:
+#                  name: main
+#                  port: portal-https
         tls:
           - hosts:
             - wifi.bergmann.click
             secretName: wifi-cert
-    controllerService:
-      enabled: true
-      type: "LoadBalancer"
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    discoveryService:
-      enabled: true
-      type: "LoadBalancer"
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    stunService:
-      enabled: true
-      type: "LoadBalancer"
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    syslogService:
-      enabled: false
-    speedtestService:
-      enabled: false
+    service:
+      main:
+        ports:
+          portal-http:
+            enabled: true
+          portal-https:
+            enabled: true
