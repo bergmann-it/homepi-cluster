@@ -20,6 +20,7 @@ spec:
       data:
         enabled: true
         mountPath: /unifi
+        storageClass: ceph-filesystem 
     env:
       TZ: 'Europe/Berlin'
     image:
