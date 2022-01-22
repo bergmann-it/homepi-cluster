@@ -32,7 +32,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-prod
         hosts:
-          - unifi.bergmann.click
+          - host: unifi.bergmann.click
         tls:
           - hosts:
             - unifi.bergmann.click
