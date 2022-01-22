@@ -20,7 +20,7 @@ spec:
       data:
         enabled: true
         mountPath: /unifi
-        storageClass: ceph-filesystem 
+        accessMode: ReadWriteOnce
     env:
       TZ: 'Europe/Berlin'
     image:
