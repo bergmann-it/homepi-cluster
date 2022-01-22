@@ -21,6 +21,7 @@ spec:
         enabled: true
         mountPath: /unifi
         accessMode: ReadWriteOnce
+        size: 1Gi
     env:
       TZ: 'Europe/Berlin'
     image:
