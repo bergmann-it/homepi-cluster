@@ -38,7 +38,7 @@ spec:
                 pathType: Prefix
                 service:
                   name: main
-                  port: http
+                  port: 8443
         tls:
           - hosts:
             - unifi.bergmann.click
@@ -54,7 +54,7 @@ spec:
                 pathType: Prefix
                 service:
                   name: main
-                  port: portal-https
+                  port: 8843
         tls:
           - hosts:
             - wifi.bergmann.click
