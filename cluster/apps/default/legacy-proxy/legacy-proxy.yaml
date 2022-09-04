@@ -43,8 +43,8 @@ spec:
     - hass.bergmann.click
     secretName: hass-cert
   - hosts:
-    - deconz.bergmann.click
-    secretName: deconz-cert
+    - zigbee2mqtt.bergmann.click
+    secretName: zigbee2mqtt-cert
   - hosts:
     - gw-1.bergmann.click
     secretName: gw1-cert
