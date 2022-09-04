@@ -18,7 +18,7 @@ spec:
               number: 8123
         path: /
         pathType: Prefix
-  - host: deconz.bergmann.click
+  - host: zigbee2mqtt.bergmann.click
     http:
       paths:
       - backend:
@@ -61,7 +61,7 @@ spec:
     port: 8123
     protocol: TCP
     targetPort: 8123
-  - name: http-deconz
+  - name: http-zigbee2mqtt
     port: 8081
     protocol: TCP
     targetPort: 8081

@@ -1,0 +1,13 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mqtt-tls
+  namespace: default
+spec:
+  secretName: mqtt-tls
+  dnsNames:
+    - mqtt.bergmann.click
+  issuerRef:
+    name: letsencrypt-dns
+    kind: ClusterIssuer
