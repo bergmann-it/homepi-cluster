@@ -1,4 +1,4 @@
----
+tigera-operator---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://docs.projectcalico.org/charts
+  url: https://projectcalico.docs.tigera.io/charts
   timeout: 2m
