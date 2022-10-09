@@ -1,8 +1,12 @@
+
+# This section includes base Calico installation configuration.
+# For more information, see: https://projectcalico.docs.tigera.io/master/reference/installation/api#operator.tigera.io/v1.Installation
 apiVersion: operator.tigera.io/v1
 kind: Installation
 metadata:
   name: default
 spec:
+  # Configures Calico networking.
   calicoNetwork:
     nodeAddressAutodetectionV6: 
       interface: eth0
@@ -13,3 +17,13 @@ spec:
         encapsulation: None
       - cidr: fd53:f3c0:fefd::/48
         encapsulation: None
+---
+
+# This section configures the Calico API server.
+# For more information, see: https://projectcalico.docs.tigera.io/master/reference/installation/api#operator.tigera.io/v1.APIServer
+apiVersion: operator.tigera.io/v1
+kind: APIServer 
+metadata: 
+  name: default 
+spec: {}
+
