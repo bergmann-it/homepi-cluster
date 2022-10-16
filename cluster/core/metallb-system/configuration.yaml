@@ -24,8 +24,8 @@ metadata:
 spec:
   asNumber: ${AS_NUMBER}
   serviceExternalIPs:
-  - "${METALLB_LB_RANGE_V4}"
-  - "${METALLB_LB_RANGE_V6}"
+  - cidr: ${METALLB_LB_RANGE_V4}
+  - cidr: ${METALLB_LB_RANGE_V6}
 ---
 apiVersion: projectcalico.org/v3
 kind: BGPPeer
@@ -33,4 +33,4 @@ metadata:
   name: edgerouter
 spec:
   asNumber: ${AS_NUMBER}
-  peerIP: "${ROUTER_IP}"
+  peerIP: ${ROUTER_IP}
