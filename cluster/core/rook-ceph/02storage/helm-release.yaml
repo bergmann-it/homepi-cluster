@@ -58,7 +58,7 @@ spec:
                 path: /
                 port: 9283
                 scheme: HTTP
-              initialDelaySeconds: 120
+              initialDelaySeconds: 240
       disruptionManagement:
         managePodBudgets: true
       resources:
