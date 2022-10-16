@@ -8,6 +8,7 @@ secretGenerator:
   type: Opaque
   options:
     disableNameSuffixHash: true
+    immutable: true
 resources:
 - calico.yaml
 - gotk-components.yaml
