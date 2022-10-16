@@ -25,21 +25,4 @@ kind: APIServer
 metadata: 
   name: default 
 spec: {}
----
-apiVersion: projectcalico.org/v3
-kind: BGPConfiguration
-metadata:
-  name: default
-spec:
-  asNumber: 64512
-  serviceExternalIPs:
-  - cidr: 192.168.8.32/27
-  - cidr: fd6b:b175:9ccf:c8::1:20/123
----
-apiVersion: projectcalico.org/v3
-kind: BGPPeer
-metadata:
-  name: edgerouter
-spec:
-  asNumber: 64512
-  peerIP: "192.168.8.1"
+
