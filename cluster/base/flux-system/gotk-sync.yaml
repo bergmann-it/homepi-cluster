@@ -27,11 +27,3 @@ spec:
     provider: sops
     secretRef:
       name: sops-gpg
-  patchesStrategicMerge:
-  - |-
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: sops-gpg
-      namespace: flux-system
-    $patch: delete

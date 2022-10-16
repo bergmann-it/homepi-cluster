@@ -10,7 +10,8 @@ These commands are all executed on the local host. The first one reques ssh acce
 
 * `k3sup install --ssh-key ~/.config/ssh-ident/identities/personal/id_ed25519 --host homepi.home.bergmann.click --k3s-extra-args="--disable servicelb --disable metrics-server --disable-cloud-controller --disable-network-policy --kube-proxy-arg proxy-mode=ipvs --disable traefik --disable local-storage --flannel-backend none --cluster-cidr 10.42.0.0/16,fd53:f3c0:fefd::/48 --service-cidr 10.43.0.0/16,fde2:37f0:b85f::/112 --node-ip 192.168.8.16,fd6b:b175:9ccf:00c8::16" --k3s-channel latest --local-path ~/.config/kube/config`
 * `kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml`
-* get secret key file 'cluster/base/flux-system/sops.gpg' from 1password
+* get secret key file 'cluster/base/flux-system/sops-secret/sops.gpg' from 1password
+* remove comment from file 'cluster/base/flux-system/kustomization.yaml'
 * `kubectl apply --kustomize=./cluster/base/flux-system`
 
 === Flux
