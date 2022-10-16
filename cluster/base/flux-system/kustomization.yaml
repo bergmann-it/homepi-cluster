@@ -8,7 +8,7 @@ secretGenerator:
   type: Opaque
 resources:
 - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
-- ../calico-system/installation.yaml
+- calico.yaml
 - gotk-components.yaml
 - gotk-sync.yaml
 - charts
