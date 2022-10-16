@@ -4,7 +4,7 @@ secretGenerator:
 - name: sops-gpg
   namespace: flux-system
   files:
-  - sops.asc=../../../sops.gpg
+  - sops.asc=sops.gpg
   type: Opaque
 resources:
 - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
