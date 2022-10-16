@@ -6,8 +6,9 @@ secretGenerator:
   files:
   - sops.asc=sops.gpg
   type: Opaque
+  options:
+    disableNameSuffixHash: true
 resources:
-- https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
 - calico.yaml
 - gotk-components.yaml
 - gotk-sync.yaml
