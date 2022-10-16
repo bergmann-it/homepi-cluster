@@ -16,22 +16,3 @@ metadata:
 spec:
   ipAddressPools:
   - default
----
-apiVersion: metallb.io/v1beta2
-kind: BGPPeer
-metadata:
-  name: edgerouter
-  namespace: metallb-system
-spec:
-  myASN: "${BGP_ASN}"
-  peerASN: "${BGP_ASN}"
-  peerAddress: "${BGP_ROUTER}"
----
-apiVersion: metallb.io/v1beta1
-kind: BGPAdvertisement
-metadata:
-  name: local
-  namespace: metallb-system
-spec:
-  ipAddressPools:
-  - default
