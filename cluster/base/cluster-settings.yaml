@@ -7,5 +7,3 @@ metadata:
 data:
   METALLB_LB_RANGE_V4: "192.168.8.32/27"
   METALLB_LB_RANGE_V6: "fd6b:b175:9ccf:c8::1:20/123"
-  BGP_ROUTER: "192.168.8.1"
-  BGP_ASN: 64512

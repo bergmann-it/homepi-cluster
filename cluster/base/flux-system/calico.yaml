@@ -31,7 +31,7 @@ kind: BGPConfiguration
 metadata:
   name: default
 spec:
-  asNumber: ${BGP_ASN}
+  asNumber: 64512
   serviceExternalIPs:
   - cidr: "${METALLB_LB_RANGE_V4}"
   - cidr: "${METALLB_LB_RANGE_V6}"
@@ -41,5 +41,5 @@ kind: BGPPeer
 metadata:
   name: edgerouter
 spec:
-  asNumber: ${BGP_ASN}
-  peerIP: "${BGP_ROUTER}"
+  asNumber: 64512
+  peerIP: "192.168.8.1"
