@@ -18,6 +18,8 @@ spec:
   dependsOn:
     - name: rook-ceph
   values:
+    monitoring:
+      enabled: false
     cephClusterSpec:
       dataDirHostPath: /var/lib/rook
       dashboard:
@@ -40,6 +42,7 @@ spec:
         useAllDevices: false
         databaseSizeMB: "1024"
         journalSizeMB: "1024"
+        osdsPerDevice: 1
         nodes:
         - name: "homepi"
           devices:
@@ -118,9 +121,7 @@ spec:
           requests:
             cpu: "250m"
             memory: "100Mi"
-    monitoring:
-      enabled: true
-    cephBlockPools:
+   cephBlockPools:
       - name: ceph-blockpool
         spec: 
           failureDomain: host
