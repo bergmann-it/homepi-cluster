@@ -13,6 +13,6 @@ jobs:
       - name: Trigger doku update
         run: |
           curl -sS -X POST https://api.github.com/repos/bergmann-it/doku/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.TRIGGER_DOKU_USER }}:${{ secrets.TRIGGER_DOKU_SECRET }} \
+          -H 'Accept: application/vnd.github+json' \
+          -H "Authorization: Bearer ${{ secrets.TRIGGER_DOKU_TOKEN }}" \
           --data '{"event_type": "update_doku"}'
