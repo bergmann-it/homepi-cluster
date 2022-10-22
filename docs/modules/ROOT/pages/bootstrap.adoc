@@ -13,6 +13,7 @@ These commands are all executed on the local host. The first one reques ssh acce
 * get secret key file 'cluster/base/flux-system/sops-secret/sops.gpg' from 1password
 * remove comment from file 'cluster/base/flux-system/kustomization.yaml'
 * `kubectl apply --kustomize=./cluster/base/flux-system`
+* add comment back to not commit without it.
 
 === Flux
 
@@ -32,4 +33,3 @@ If you want to start fresh the following must be called on the Raspberry Pi:
 * `k3s-uninstall.sh`
 * `rm -rf /etc/cni`
 * `rm -rf /var/lib/rook/*`
-
