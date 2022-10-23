@@ -25,11 +25,11 @@ spec:
     cephClusterSpec:
       dataDirHostPath: /var/lib/rook
       dashboard:
-        enabled: true
+        enabled: false
         port: 7000
         ssl: false
       mon:
-        count: 3
+        count: 1
         allowMultiplePerNode: true
       mgr:
         count: 1 
