@@ -29,7 +29,7 @@ spec:
         port: 7000
         ssl: false
       mon:
-        count: 1
+        count: 3
         allowMultiplePerNode: true
       mgr:
         count: 1 
