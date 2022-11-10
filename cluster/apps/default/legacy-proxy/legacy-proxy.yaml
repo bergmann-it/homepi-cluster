@@ -28,6 +28,26 @@ spec:
               number: 8081
         path: /
         pathType: Prefix
+  - host: zwave2mqtt.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: homepi-service
+            port:
+              number: 8091
+        path: /
+        pathType: Prefix
+  - host: minecraft.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: neuesding-service
+            port:
+              number: 25800
+        path: /
+        pathType: Prefix
   - host: gw-1.bergmann.click
     http:
       paths:
@@ -46,8 +66,14 @@ spec:
     - zigbee2mqtt.bergmann.click
     secretName: zigbee2mqtt-cert
   - hosts:
+    - zwave2mqtt.bergmann.click
+    secretName: zwave2mqtt-cert
+  - hosts:
     - gw-1.bergmann.click
     secretName: gw1-cert
+  - hosts:
+    - minecraft.bergmann.click
+    secretName: minecraft-cert
 ---
 apiVersion: v1
 kind: Service
@@ -65,6 +91,10 @@ spec:
     port: 8081
     protocol: TCP
     targetPort: 8081
+  - name: http-zwave2mqtt
+    port: 8091
+    protocol: TCP
+    targetPort: 8091
   sessionAffinity: None
   type: ExternalName
 ---
@@ -80,5 +110,20 @@ spec:
     port: 443
     protocol: TCP
     targetPort: 443
+  sessionAffinity: None
+  type: ExternalName
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neuesding-service
+  namespace: default
+spec:
+  externalName: neuesding.home.bergmann.click
+  ports:
+  - name: mcss-gw
+    port: 25800
+    protocol: TCP
+    targetPort: 25800
   sessionAffinity: None
   type: ExternalName
