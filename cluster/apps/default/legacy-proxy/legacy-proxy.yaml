@@ -18,7 +18,7 @@ spec:
               number: 8123
         path: /
         pathType: Prefix
-  - host: zigbee2mqtt.bergmann.click
+  - host: zigbee.bergmann.click
     http:
       paths:
       - backend:
@@ -28,7 +28,7 @@ spec:
               number: 8081
         path: /
         pathType: Prefix
-  - host: zwave2mqtt.bergmann.click
+  - host: zwave.bergmann.click
     http:
       paths:
       - backend:
@@ -63,11 +63,11 @@ spec:
     - hass.bergmann.click
     secretName: hass-cert
   - hosts:
-    - zigbee2mqtt.bergmann.click
-    secretName: zigbee2mqtt-cert
+    - zigbee.bergmann.click
+    secretName: zigbee-cert
   - hosts:
-    - zwave2mqtt.bergmann.click
-    secretName: zwave2mqtt-cert
+    - zwave.bergmann.click
+    secretName: zwave-cert
   - hosts:
     - gw-1.bergmann.click
     secretName: gw1-cert
@@ -91,7 +91,7 @@ spec:
     port: 8081
     protocol: TCP
     targetPort: 8081
-  - name: http-zwave2mqtt
+  - name: http-zwavejs2mqtt
     port: 8091
     protocol: TCP
     targetPort: 8091
