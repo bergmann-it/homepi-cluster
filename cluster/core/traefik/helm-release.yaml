@@ -63,7 +63,7 @@ spec:
       enabled: false
       path: /certs
       size: 128Mi
-      storageClass: ceph-filesystem
+      storageClass: filesystem
     volumes:
       - mountPath: /data
         name: traefik-config

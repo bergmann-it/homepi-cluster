@@ -4,4 +4,3 @@ resources:
 - cert-manager.yaml
 - traefik.yaml
 - cattle-system.yaml
-- rook-ceph.yaml

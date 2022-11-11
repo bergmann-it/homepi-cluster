@@ -32,4 +32,3 @@ If you want to start fresh the following must be called on the Raspberry Pi:
 
 * `k3s-uninstall.sh`
 * `rm -rf /etc/cni`
-* `rm -rf /var/lib/rook/*`
