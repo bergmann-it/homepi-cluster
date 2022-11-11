@@ -121,7 +121,7 @@ metadata:
 spec:
   externalName: neuesding.home.bergmann.click
   ports:
-  - name: mcss-gw
+  - name: https-mcss
     port: 25800
     protocol: TCP
     targetPort: 25800
