@@ -41,7 +41,10 @@ data:
     providers:
       kubernetesCRD:
         allowCrossNamespace: true
+        allowExternalNameServices: true
+        allowEmptyServices: true
       kubernetesIngress:
+        allowEmptyServices: true
         allowExternalNameServices: true
     accessLog:
     log:
