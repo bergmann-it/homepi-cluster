@@ -20,7 +20,8 @@ spec:
     webhook:
       enabled: true
     extraArgs:
-    - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
+    # 8.8.8.8 returns SERVFAIL when queried for SOA Records for hosts with cname
+    - --dns01-recursive-nameservers=1.1.1.1:53
     - --dns01-recursive-nameservers-only
     cainjector:
       replicaCount: 1
