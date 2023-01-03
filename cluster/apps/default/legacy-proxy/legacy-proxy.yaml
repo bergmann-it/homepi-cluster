@@ -28,16 +28,6 @@ spec:
               number: 8081
         path: /
         pathType: Prefix
-  - host: zwave.bergmann.click
-    http:
-      paths:
-      - backend:
-          service:
-            name: homepi-service
-            port:
-              number: 8091
-        path: /
-        pathType: Prefix
   - host: minecraft.bergmann.click
     http:
       paths:
@@ -58,6 +48,16 @@ spec:
               number: 443
         path: /
         pathType: Prefix
+  - host: klingel.bergmann.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: klingel-service
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - hass.bergmann.click
@@ -74,6 +74,9 @@ spec:
   - hosts:
     - minecraft.bergmann.click
     secretName: minecraft-cert
+  - hosts:
+    - klingel.bergmann.click
+    secretName: klingel-cert
 ---
 apiVersion: v1
 kind: Service
@@ -91,10 +94,6 @@ spec:
     port: 8081
     protocol: TCP
     targetPort: 8081
-  - name: http-zwavejs2mqtt
-    port: 8091
-    protocol: TCP
-    targetPort: 8091
   sessionAffinity: None
   type: ExternalName
 ---
@@ -125,5 +124,20 @@ spec:
     port: 25800
     protocol: TCP
     targetPort: 25800
+  sessionAffinity: None
+  type: ExternalName
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: klingel-service
+  namespace: default
+spec:
+  externalName: klingel.home.bergmann.click
+  ports:
+  - name: https-klingel
+    port: 443
+    protocol: TCP
+    targetPort: 443
   sessionAffinity: None
   type: ExternalName
