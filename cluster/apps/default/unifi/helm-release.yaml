@@ -39,6 +39,10 @@ spec:
                 service:
                   name: main
                   port: 8443
+        tls:
+          - hosts:
+            - unifi.bergmann.click
+            secretName: unifi-cert
       portal:
         enabled: true
         annotations:
