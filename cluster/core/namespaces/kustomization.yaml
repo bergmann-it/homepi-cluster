@@ -4,3 +4,4 @@ resources:
 - cert-manager.yaml
 - traefik.yaml
 - cattle-system.yaml
+- local-path-storage.yaml

@@ -7,3 +7,4 @@ resources:
 - cert-manager
 - flux-system
 - system-upgrade
+- local-path-storage
