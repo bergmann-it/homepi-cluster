@@ -6,6 +6,5 @@ resources:
 - traefik-charts.yaml
 - jetstack-charts.yaml
 - smueller18-charts.yaml
-- k8s-at-home-charts.yaml
-- rancher-charts.yaml
 - containeroo-charts.yaml
+- truecharts-charts.yaml

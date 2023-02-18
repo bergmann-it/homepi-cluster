@@ -8,61 +8,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: unifi
-      version: 4.10.1
+      version: 13.0.10
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: truecharts-charts
         namespace: flux-system
   values:
-    persistence:
-      data:
-        enabled: true
-        mountPath: /unifi
-        accessMode: ReadWriteOnce
-        size: 1Gi
     env:
       TZ: 'Europe/Berlin'
-    image:
-      tag: '7.3.83'
-    ingress:
-      main:
-        enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-        hosts:
-          - host: unifi.bergmann.click
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  name: main
-                  port: 8443
-        tls:
-          - hosts:
-            - unifi.bergmann.click
-            secretName: unifi-cert
-      portal:
-        enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-        hosts:
-          - host: wifi.bergmann.click
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  name: main
-                  port: 8843
-        tls:
-          - hosts:
-            - wifi.bergmann.click
-            secretName: wifi-cert
-    service:
-      main:
-        ports:
-          portal-http:
-            enabled: true
-          portal-https:
-            enabled: true
