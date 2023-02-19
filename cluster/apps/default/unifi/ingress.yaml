@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: unifi
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-dns
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+spec:
+  tls:
+    - secretName: unifi-cert
+      hosts:
+        - unifi.bergmann.click
+  rules:
+  - host: unifi.bergmann.click
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: unifi
+              port:
+                number: 8443
+
