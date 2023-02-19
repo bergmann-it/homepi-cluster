@@ -30,3 +30,5 @@ spec:
         - hosts:
           - unifi.bergmann.click
           secretName: unifi-cert
+    configVolume:
+      storageClassName: "local-path"
