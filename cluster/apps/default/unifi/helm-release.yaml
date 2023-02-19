@@ -28,5 +28,5 @@ spec:
               pathType: Prefix
       tls:
         - hosts:
-          - wifi.bergmann.click
-          secretName: wifi-cert
+          - unifi.bergmann.click
+          secretName: unifi-cert
