@@ -17,11 +17,12 @@ spec:
   values:
     env:
       TZ: 'Europe/Berlin'
+    service:
+      port: 443
     ingress:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        traefik.ingress.kubernetes.io/service.serversscheme: https
       hosts:
         - host: unifi.bergmann.click
           paths:
