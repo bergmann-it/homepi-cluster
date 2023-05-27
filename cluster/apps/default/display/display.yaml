@@ -44,6 +44,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: display-update
+  namespace: default
 spec:
   schedule: "* * * * *"
   jobTemplate:
