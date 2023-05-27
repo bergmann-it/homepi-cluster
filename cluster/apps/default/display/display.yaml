@@ -40,6 +40,33 @@ spec:
         persistentVolumeClaim:
           claimName: display-vol-pvc
 ---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: display-update
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: updatedisplay
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date > /usr/share/nginx/html/index.html
+            volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: display-vol
+          restartPolicy: OnFailure
+        volumes:
+        - name: display-vol
+          persistentVolumeClaim:
+            claimName: display-vol-pvc
+---
 apiVersion: v1
 kind: Service
 metadata:
