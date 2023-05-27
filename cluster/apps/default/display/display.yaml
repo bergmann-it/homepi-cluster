@@ -63,10 +63,10 @@ spec:
             - mountPath: /usr/share/nginx/html
               name: display-vol
           restartPolicy: OnFailure
-        volumes:
-        - name: display-vol
-          persistentVolumeClaim:
-            claimName: display-vol-pvc
+          volumes:
+          - name: display-vol
+            persistentVolumeClaim:
+              claimName: display-vol-pvc
 ---
 apiVersion: v1
 kind: Service
