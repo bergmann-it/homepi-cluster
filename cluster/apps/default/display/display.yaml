@@ -35,32 +35,30 @@ spec:
         - mountPath: /output
           name: display-vol
         env:
-        - name: RUNTIME_NAMESPACE
-          value: ""
         - name: HA_BASE_URL
           value: "https://hass.bergmann.click"
         - name: HA_SCREENSHOT_URL
           value: "/lovelace-tablet/kindle?kiosk"
         - name: CRON_JOB
-          value: "* * * * *"
+          value: "*/5 * * * *"
         - name: RENDERING_TIMEOUT
-          value: 30000
+          value: "30000"
         - name: RENDERING_DELAY
-          value: 0
+          value: "0"
         - name: RENDERING_SCREEN_HEIGHT
-          value: 800
+          value: "800"
         - name: RENDERING_SCREEN_WIDTH
-          value: 600
+          value: "600"
         - name: GRAYSCALE_DEPTH
-          value: 8
+          value: "8"
         - name: OUTPUT_PATH
           value: "/output/cover.png"
         - name: LANGUAGE
           value: "de"
         - name: ROTATION
-          value: 0
+          value: "0"
         - name: SCALING
-          value: 1
+          value: "1"
         - name: HA_ACCESS_TOKEN
           valueFrom:
             secretKeyRef:
