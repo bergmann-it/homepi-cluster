@@ -1,0 +1,39 @@
+apiVersion: v1
+data:
+    token: ENC[AES256_GCM,data:KuIhxy5TE1rtLuKYf/WKeP/WpzsOVfEaIWOGd+qrDz+dszy4GPAUuXHTHtDx/rvREB2H323cwpKazoel,iv:R6Y6LXDNNZkppqgFjf+/Wn8QR6iYY1Itb/LeVRNrAK0=,tag:qHv6WS1MG6IEmdqBLVTcig==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: display-token
+    namespace: default
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-05-29T05:08:15Z"
+    mac: ENC[AES256_GCM,data:pI/A9sWUipBzzMCXuqNweaLUnL3nCPmI8+wwFa8TeVg4XNxnJSI9WQ3/lAcHclDAxccShZ1rg6DlOKc+xupwa4G9tA8yulPVCFnHmN386rR3mYF17V1CqdSuyhwiLQJSVCagtGG6BdEcXehmJDlj4Ppowf63VckiUOvMF/ZzUtM=,iv:4sDcI9KWQjiTQ7mG/08xwVgVFtvpNaxsvIJp7Ked6eQ=,tag:ZVYGHbfoP+pZ2Z2UsmMWVA==,type:str]
+    pgp:
+        - created_at: "2023-05-29T05:08:13Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA3E//P2MX8X/ARAA2VvOHuedZ1uFiOvszogthY2HY078ksKak5RLCqXBtrZG
+            rWuuLyOa+1tEXBcTSBwU2WmQ3FJFnwd37eAKIn0gYYfMSWR9vq/koQ1Q8FUyP5fW
+            oW/ByxUEsBmBi0mhux10Pew5uMVCN5MMJ4YIWu7XkxWtCJHRmtbK8/NfK2UaZ1eQ
+            aJ+3ZOtYbNtZEYfkDAUHBtHJvTLE4mG8tajDoOLGKaJfkB3DPJ3ZauE8Aehwg1iN
+            3Q4/K+OwTSq0xubwWeTgRLbUE7bsRffLoSVHJXj7utg14PVg8A3Sy2D0MCWR2qV/
+            F9aKcMzU7FmUZoxooFMkU1NJe7QBBR0Jt6cG7GJ/wmtLbH4b2ef1FuPzQQEbjfSC
+            6klMgBWcY3IvYgnobgthdfkxfbGTr7eAVPEGF/xxEgJCwLeQQEP1ejlYjVyBraX1
+            fsk+AHNn0Mb5jaSKQo1Y17puL1tw1ecCqPjw9CXkbpDrxfPQNKCX3tjwBrTX56I+
+            bPi3nNTeJWue52qfmGJZugvNFTVWt8ZAoNq07ZnuD9MeLgQkHwbsOsGCTU7Mp+Sn
+            h7O3T21uSN4UWgdzZzOnIZ8kqEvfI4NWM5qzaneSHS59y6ynWpMILUwxwmAYqCTy
+            ipiX9CW3+Z04grJlUOgGEYXK45Tk6tXblcaE/M+jRK1HSbI4vJnsd2iDHyIm06fS
+            XgHNMzUKOp9VdKmzrv/vxOJTCFc1VmFfu9hR5Uk38kDjyGdn/z3gt8BE2yzzjyGP
+            jo1LfABDOrkEKmUkRg7SVmdB5USrkGJe9QS+J5+hojJTfmVnv4O2IeH5uK1IQrU=
+            =PK+i
+            -----END PGP MESSAGE-----
+          fp: 107F867893BC7485068D3EBFA4C6B059D1C55B1A
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
