@@ -44,6 +44,8 @@ spec:
           value: "0"
         - name: SCALING
           value: "1"
+        - name: HA_BATTERY_WEBHOOK
+          value: "11110ec717fa4d09f5b4294323a9ef97"
         - name: HA_ACCESS_TOKEN
           valueFrom:
             secretKeyRef:
