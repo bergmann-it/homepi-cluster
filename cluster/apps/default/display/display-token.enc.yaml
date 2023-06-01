@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: display-token
+    namespace: default
 type: Opaque
 data:
     token: ENC[AES256_GCM,data:ehMLtQHpJzDiiPeyP5NdscHpQyTaf2Z7XSycqYeri73n7ZsHsyRGCtTP88aeruG9OHqGlM5VfaanOZvUdO7n0kjhoJ5FpnOl98pWidTS/ihmd5Q4I/SCEnmFK7brvqBs73E/uEdjTMQBuSlsPCK08FsUnMBmWGE1tB8lbVP2B8EyBQu4XaBwxvVjSGVwbhNiB+7ykrQ2B64a0mKWY9vofe32lIUNk6InBJCBHq+WchmiCiZELyFvVo/PWWO65oT+GgiFV2tUU0M/uBu1ysie9vZnLV6lCZOI8cMsZRzxcvGCoAz7w79EXXDMSxPrC8b9LYG6FXNCGRg=,iv:rJon+7z0Y+HxOyD7iWpEseuiCzME3xRJuKe3yQoY/ac=,tag:dNeVXPhbU1I2aXBtrQ9vWA==,type:str]
