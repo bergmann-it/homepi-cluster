@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: display
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-dns
+spec:
+  tls:
+    - secretName: homematic-tls
+      hosts:
+        - homematic.bergmann.click
+  rules:
+  - host: homematic.bergmann.click
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: raspberrymatic
+              port:
+                number: 80
+
