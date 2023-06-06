@@ -4,7 +4,7 @@ metadata:
   name: homematic
   namespace: default
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-dns
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
     - secretName: homematic-tls
