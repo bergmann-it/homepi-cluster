@@ -20,16 +20,3 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /var/opt/raspberrymatic
-    ingress:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-      hosts:
-        - host: homematic.bergmann.click
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-          - homematic.bergmann.click
-          secretName: homematic-cert
