@@ -8,3 +8,4 @@ resources:
 - smueller18-charts.yaml
 - containeroo-charts.yaml
 - k8sonlab-charts.yaml
+- RaspberryMatic-charts.yaml

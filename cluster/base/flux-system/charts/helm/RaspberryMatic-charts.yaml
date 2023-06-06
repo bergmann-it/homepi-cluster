@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: raspberrymatic-charts
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://jens-maus.github.io/RaspberryMatic
+  timeout: 2m

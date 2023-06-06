@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: raspberrymatic
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: raspberrymatic
+      version: 
+      sourceRef:
+        kind: HelmRepository
+        name: raspberrymatic-charts
+        namespace: flux-system
+  values:
+    persistence:
+      data:
+        enabled: true
+        type: hostPath
+        hostPath: /var/opt/raspberrymatic
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: homematic.bergmann.click
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+          - homematic.bergmann.click
+          secretName: homematic-cert
