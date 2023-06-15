@@ -5,11 +5,13 @@ metadata:
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: hmrpc-allowlist@kubernetescrd
 spec:
   tls:
     - secretName: homematic-tls
       hosts:
         - homematic.bergmann.click
+        - hmrpc-ip.bergmann.click
   rules:
   - host: homematic.bergmann.click
     http:
@@ -21,4 +23,13 @@ spec:
               name: raspberrymatic
               port:
                 number: 80
-
+  - host: hmrpc-ip.bergmann.click
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: raspberrymatic
+              port:
+                number: 32010
