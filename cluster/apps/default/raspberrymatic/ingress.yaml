@@ -11,9 +11,6 @@ spec:
     - secretName: homematic-tls
       hosts:
         - homematic.bergmann.click
-    - secretName: hmrpc-tls
-      hosts:
-        - hmrpc-ip.bergmann.click
   rules:
   - host: homematic.bergmann.click
     http:
@@ -25,6 +22,21 @@ spec:
               name: raspberrymatic
               port:
                 number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hmrpc
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: hmrpc-allowlist@kubernetescrd
+spec:
+  tls:
+    - secretName: hmrpc-tls
+      hosts:
+        - hmrpc-ip.bergmann.click
+  rules:
   - host: hmrpc-ip.bergmann.click
     http:
       paths:
@@ -35,3 +47,4 @@ spec:
               name: raspberrymatic
               port:
                 number: 32010
+
