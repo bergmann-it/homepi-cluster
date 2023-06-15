@@ -11,6 +11,8 @@ spec:
     - secretName: homematic-tls
       hosts:
         - homematic.bergmann.click
+    - secretName: hmrpc-tls
+      hosts:
         - hmrpc-ip.bergmann.click
   rules:
   - host: homematic.bergmann.click
