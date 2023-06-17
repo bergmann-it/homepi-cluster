@@ -45,5 +45,5 @@ spec:
             service:
               name: raspberrymatic
               port:
-                number: 32010
+                number: 2010
 
