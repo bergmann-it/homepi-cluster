@@ -29,7 +29,7 @@ metadata:
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.middlewares: hmrpc-allowlist@kubernetescrd
+#    traefik.ingress.kubernetes.io/router.middlewares: hmrpc-allowlist@kubernetescrd
 spec:
   tls:
     - secretName: hmrpc-tls
