@@ -35,6 +35,7 @@ spec:
     - secretName: hmrpc-tls
       hosts:
         - hmrpc-ip.bergmann.click
+        - hmrpc-groups.bergmann.click
   rules:
   - host: hmrpc-ip.bergmann.click
     http:
@@ -46,4 +47,14 @@ spec:
               name: raspberrymatic
               port:
                 number: 2010
+  - host: hmrpc-groups.bergmann.click
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: raspberrymatic
+              port:
+                number: 9292
 
