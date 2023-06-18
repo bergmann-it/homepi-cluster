@@ -2,6 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: hmrpc-allowlist
+  namespace: default
 spec:
   ipWhiteList:
     sourceRange:
