@@ -10,9 +10,9 @@ jobs:
   yaml:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
     - name: yamllint
-      uses: reviewdog/action-yamllint@v1
+      uses: reviewdog/action-yamllint@49fe172669b506f0c688207a67b4cf93fee52699 # v1
       with:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review
