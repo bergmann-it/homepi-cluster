@@ -1,0 +1,14 @@
+---
+area/github:
+  - ".github/**/*"
+area/kubernetes:
+  - "cluster/**/*"
+  - "bootstrap/templates/kubernetes/**/*"
+  - "bootstrap/tasks/kubernetes/**/*"
+area/bootstrap:
+  - "bootstrap/**/*"
+  - "bootstrap/configure.yaml"
+area/addons:
+  - "bootstrap/templates/addons/**/*"
+  - "bootstrap/tasks/addons/**/*"
+  - "bootstrap/vars/addons.sample.yaml"
