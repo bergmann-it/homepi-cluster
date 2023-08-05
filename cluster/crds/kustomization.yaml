@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
 # renovate: registryUrl=https://charts.jetstack.io chart=cert-manager
-- https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.crds.yaml
+- https://github.com/jetstack/cert-manager/releases/download/v1.12.3/cert-manager.crds.yaml
 - external-snapshotter
 - traefik
 - metallb-system
