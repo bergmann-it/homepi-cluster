@@ -1,10 +1,14 @@
-# Editors
-.vscode/
 # Trash
 .DS_Store
 Thumbs.db
 # k8s
 kubeconfig
+.config.env
+*.agekey
+*.pub
+*.key
 # vscode-sops
 .decrypted~*.yaml
 sops.gpg
+# Ansible
+.venv*
