@@ -23,7 +23,7 @@ This is done in the following stages:
 . The last command of the initial setup installes (link:https://github.com/bergmann-it/homepi-cluster/blob/main/cluster/base/flux-system/gotk-components.yaml[gotk-components.yaml]) and configures (link:https://github.com/bergmann-it/homepi-cluster/blob/main/cluster/base/flux-system/gotk-sync.yaml[gotk-sync.yaml]) flux. It also installs the helm repositories.
 . Thereafter flux will download the repository and start its deployment at the link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster/base[entrypoint].
 . First it deploys the link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster/crds[CRDs] which are needed for the next steps.
-. Then the link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster/core[core] components are deployed. See xref:core.adoc[core page] for details.
+. Then the link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster/core[core] components are deployed.
 . Lastly all link:https://github.com/bergmann-it/homepi-cluster/tree/main/cluster/apps[applications] are deployed to the cluster.
 
 == cleanup
