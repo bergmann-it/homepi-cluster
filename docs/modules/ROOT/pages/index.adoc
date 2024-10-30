@@ -10,7 +10,7 @@ This cluster is running link:https://k3s.io[k3s] on the xref:hardware.adoc[hardw
 
 The cluster uses link:https://traefik.io/[traefik] for networking.
 
-link:https://metallb.universe.tf/[MetalLB] works with the xref:it::network.adoc[Router] via BGP to provide Adresses from the 192.168.8.32/27 range to the cluster.
+link:https://metallb.universe.tf/[MetalLB] works with the xref:da::network.adoc[Router] via BGP to provide Adresses from the 192.168.8.32/27 range to the cluster.
 
 === Secrets
 
