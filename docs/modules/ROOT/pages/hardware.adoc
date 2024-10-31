@@ -1,5 +1,5 @@
 = Harware
 
-The cluster currently runs on xref:da::homepi.adoc[a single Raspberry Pi].
+The cluster currently runs on xref:da::it/homepi.adoc[a single Raspberry Pi].
 
 While moving more services from the OS directly on the Rasberry Pi to the K8S cluster I might extend this page.
