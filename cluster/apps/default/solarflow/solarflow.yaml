@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: solarflow-dpl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: solarflow
+  template:
+    metadata:
+      labels:
+        app: solarflow
+    spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: solarflow-config
+      containers:
+      - name: solarflow
+        image: rbrandstaedter/solarflow-control:latest
+        volumeMounts:
+        - name: config-volume
+          mountPath: /solarflow/config.ini
+          subPath: config.ini
+        env:
+        - name: MQTT_PWD
+          valueFrom:
+            secretKeyRef:
+              name: solarflow-secret
+              key: mqttpwd
