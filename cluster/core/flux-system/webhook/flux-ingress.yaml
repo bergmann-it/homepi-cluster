@@ -32,7 +32,7 @@ spec:
             name: webhook-receiver
             port:
               number: 80
-        path: /
+        path: /hook
         pathType: Prefix
   tls:
   - hosts:
