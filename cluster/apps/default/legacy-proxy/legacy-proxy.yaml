@@ -8,16 +8,6 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: hass.bergmann.click
-    http:
-      paths:
-      - backend:
-          service:
-            name: homepi-service
-            port:
-              number: 8123
-        path: /
-        pathType: Prefix
   - host: zigbee.bergmann.click
     http:
       paths:
@@ -59,9 +49,6 @@ spec:
         path: /
         pathType: Prefix
   tls:
-  - hosts:
-    - hass.bergmann.click
-    secretName: hass-cert
   - hosts:
     - zigbee.bergmann.click
     secretName: zigbee-cert
