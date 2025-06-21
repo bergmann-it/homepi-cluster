@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger doku update
-        run: |
-          curl -sS -X POST https://api.github.com/repos/bergmann-it/doku/actions/workflows/deploy.yaml/dispatches \
-          -H 'Accept: application/vnd.github+json' \
-          -H "Authorization: Bearer ${{ secrets.TRIGGER_DOKU_TOKEN }}" \
-          --data '{"ref": "main"}'
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: '${{ secrets.TRIGGER_DOKU_TOKEN }}'
+          repository: bergmann-it/doku
+          event-type: update_doku
