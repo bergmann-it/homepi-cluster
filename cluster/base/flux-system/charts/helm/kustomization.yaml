@@ -5,7 +5,7 @@ resources:
 - metallb-charts.yaml
 - traefik-charts.yaml
 - jetstack-charts.yaml
-- smueller18-charts.yaml
+- cbergmann-charts.yaml
 - containeroo-charts.yaml
 - k8sonlab-charts.yaml
 - RaspberryMatic-charts.yaml
