@@ -17,6 +17,9 @@ spec:
   values:
     service:
       port: 443
+    persistence:
+      enabled: true
+      storageClass: "local-path"
     ingress:
       enabled: true
       annotations:
