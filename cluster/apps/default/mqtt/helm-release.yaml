@@ -17,6 +17,7 @@ spec:
   values:
     service:
       type: ClusterIP
+      externalTrafficPolicy: Local
     ports:
       mqtt:
         port: 1883
