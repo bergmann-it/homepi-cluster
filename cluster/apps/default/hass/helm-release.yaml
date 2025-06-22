@@ -15,8 +15,6 @@ spec:
         name: hass-charts
         namespace: flux-system
   values:
-    service:
-      port: 8080
     persistence:
       enabled: true
       storageClass: "local-path"
@@ -28,7 +26,7 @@ spec:
         - host: hass.bergmann.click
           paths:
             - path: /
-              pathType: Prefix
+              pathType: ImplementationSpecific
       tls:
         - hosts:
           - hass.bergmann.click
