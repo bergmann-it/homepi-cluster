@@ -20,7 +20,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-dns
-    traefik.ingress.kubernetes.io/router.entrypoints: web, webscure
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
   name: flux-ingress
   namespace: flux-system
 spec:
