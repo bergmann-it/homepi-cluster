@@ -5,3 +5,4 @@ resources:
 - merossaclfile.enc.yaml
 - passwordfile.enc.yaml
 - helm-release.yaml
+- ingress.yaml
