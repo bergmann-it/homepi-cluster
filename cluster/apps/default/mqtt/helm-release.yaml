@@ -47,7 +47,7 @@ spec:
         subPath: tls.crt
       - name: mqtttls
         mountPath: "/etc/mosquitto/certs/tls.key"
-        subPath: tls.crt
+        subPath: tls.key
     extraVolumes:
       - name: merossaclfile
         secret: 
