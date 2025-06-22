@@ -9,4 +9,5 @@ resources:
 - containeroo-charts.yaml
 - k8sonlab-charts.yaml
 - RaspberryMatic-charts.yaml
+- t3n-charts.yaml
 - hass-charts.yaml
