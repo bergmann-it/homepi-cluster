@@ -23,6 +23,7 @@ spec:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
       hosts:
         - host: unifi.bergmann.click
           paths:

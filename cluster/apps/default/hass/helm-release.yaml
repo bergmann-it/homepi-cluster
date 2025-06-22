@@ -22,6 +22,7 @@ spec:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
       hosts:
         - host: hass.bergmann.click
           paths:
