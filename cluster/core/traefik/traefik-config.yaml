@@ -12,6 +12,12 @@ data:
       maxIdleConnsPerHost: 200
       insecureSkipVerify: true
     entryPoints:
+      mqtt:
+        address: ":1883/tcp"
+      mqtts:
+        address: ":8883/tcp"
+      openmqtts:
+        address: ":8884/tcp"
       unificaptive:
         address: ":8881/tcp"
       unificaptives:

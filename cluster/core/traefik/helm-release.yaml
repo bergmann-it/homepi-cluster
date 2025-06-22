@@ -55,6 +55,27 @@ spec:
         protocol: TCP
         tls:
           enabled: false
+      mqtt:
+        port: 1883
+        expose: true
+        exposedPort: 1883
+        protocol: TCP
+        tls:
+          enabled: false
+      mqtts:
+        port: 8883
+        expose: true
+        exposedPort: 8883
+        protocol: TCP
+        tls:
+          enabled: false
+      openmqtts:
+        port: 8884
+        expose: true
+        exposedPort: 8884
+        protocol: TCP
+        tls:
+          enabled: false
     service:
       annotations:
         metallb.universe.tf/allow-shared-ip: traefik

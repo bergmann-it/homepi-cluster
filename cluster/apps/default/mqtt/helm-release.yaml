@@ -15,21 +15,21 @@ spec:
         name: k8sonlab-charts
         namespace: flux-system
   values:
-    service:
-      type: NodePort
+#    service:
+#  type: NodePort
     ports:
       mqtt:
         port: 1883
         # sets consistent nodePort, required to set service.type=NodePort
-        nodePort: 1883
+        #nodePort: 1883
         protocol: TCP
       mqtts:
         port: 8883
-        nodePort: 8883
+        #nodePort: 8883
         protocol: TCP
       openmqtts:
         port: 8884
-        nodePort: 8884
+        #nodePort: 8884
         protocol: TCP
       websocket:
         port: 9090
