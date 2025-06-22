@@ -6,7 +6,7 @@ metadata:
 spec:
   entryPoints:
     - mqtt
-  rules:
+  routes:
     - match: HostSNI(`*`)
       services:
         - name: mosquitto
@@ -20,7 +20,7 @@ metadata:
 spec:
   entryPoints:
     - mqtts
-  rules:
+  routes:
     - match: HostSNI(`*`)
       services:
         - name: mosquitto
@@ -34,7 +34,7 @@ metadata:
 spec:
   entryPoints:
     - openmqtts
-  rules:
+  routes:
     - match: HostSNI(`*`)
       services:
         - name: mosquitto
