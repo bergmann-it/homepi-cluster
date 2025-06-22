@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
   values:
     service:
-      port: 443
+      port: 8080
     persistence:
       enabled: true
       storageClass: "local-path"
