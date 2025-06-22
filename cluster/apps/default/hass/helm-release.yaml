@@ -26,7 +26,7 @@ spec:
         - host: hass.bergmann.click
           paths:
             - path: /
-              pathType: ImplementationSpecific
+              pathType: Prefix 
       tls:
         - hosts:
           - hass.bergmann.click
