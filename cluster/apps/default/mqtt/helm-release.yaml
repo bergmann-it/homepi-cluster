@@ -15,8 +15,8 @@ spec:
         name: k8sonlab-charts
         namespace: flux-system
   values:
-#    service:
-#  type: NodePort
+    service:
+      type: ClusterIP
     ports:
       mqtt:
         port: 1883
