@@ -1,0 +1,156 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mosquitto
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: mosquitto
+      version: 2.6.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8sonlab-charts
+        namespace: flux-system
+  values:
+    ports:
+      mqtt:
+        port: 1883
+        # sets consistent nodePort, required to set service.type=NodePort
+        nodePort: 1883
+        protocol: TCP
+      mqtts:
+        port: 8883
+        nodePort: 8883
+        protocol: TCP
+      openmqtts:
+        port: 8884
+        nodePort: 8884
+        protocol: TCP
+      websocket:
+        port: 9090
+        protocol: TCP
+    persistence:
+      enabled: true
+      storageClass: "local-path"
+    extraVolumeMounts:
+      - name: merossaclfile
+        mountPath: "/etc/mosquitto/meross.aclfile"
+        subPath: aclfile
+      - name: passwordfile
+        mountPath: "/etc/mosquitto/passwordfile"
+        subPath: passwordfile
+      - name: mqtttls
+        mountPath: "/etc/mosquitto/certs/tls.crt"
+        subPath: tls.crt
+      - name: mqtttls
+        mountPath: "/etc/mosquitto/certs/tls.key"
+        subPath: tls.crt
+    extraVolumes:
+      - name: merossaclfile
+        secret: 
+          secretName: mosquitto-merossaclfile 
+      - name: passwordfile
+        secret: 
+          secretName: mosquitto-passwordfile
+      - name: mqtttls
+        secret: 
+          secretName: mqtt-tls
+    config: |
+      persistence true
+      persistence_location /mosquitto/data/
+
+      per_listener_settings true
+      acl_file /etc/mosquitto/aclfile
+
+      log_dest stdout
+      log_type error
+      log_type warning
+      log_type notice
+
+      connection_messages true
+      log_timestamp true
+      listener 1883
+      allow_anonymous true
+      password_file /etc/mosquitto/passwordfile
+      listener 8883
+      allow_anonymous false
+      password_file /etc/mosquitto/passwordfile
+      certfile /etc/mosquitto/certs/tls.crt
+      cafile /etc/mosquitto/certs/tls.crt
+      keyfile /etc/mosquitto/certs/tls.key
+      listener 8884
+      allow_anonymous true
+      require_certificate false
+      use_username_as_clientid true
+      acl_file /etc/mosquitto/meross.aclfile
+      certfile /etc/mosquitto/certs/tls.crt
+      cafile /etc/mosquitto/certs/tls.crt
+      keyfile /etc/mosquitto/certs/tls.key
+      listener 9090
+      protocol websockets
+    acls: |-
+      user clb
+      topic readwrite #
+
+      user ot-recorder
+      topic read owntracks/clb/#
+
+      user homeassistant
+      topic read owntracks/clb/#
+      topic readwrite zwave/#
+      topic readwrite valetudo/zoe/#
+      topic readwrite zigbee2mqtt/#
+      topic readwrite homeassistant/#
+      topic readwrite shellies/#
+      topic readwrite wallpanel/#
+      topic readwrite tasmota/#
+      topic readwrite BSB-LAN/#
+      topic readwrite /appliance/#
+      topic readwrite /gDa3tb/#
+      topic readwrite iot/gDa3tb/#
+      topic readwrite solarflow-hub/#
+
+      user valetudo_zoe
+      topic readwrite valetudo/zoe/#
+      topic readwrite homeassistant/#
+
+      user zwavejs2mqtt
+      topic readwrite zwave/#
+      topic readwrite homeassistant/#
+
+      user zigbee2mqtt
+      topic readwrite zigbee2mqtt/#
+      topic readwrite homeassistant/#
+
+      user shellyhaustuer
+      topic readwrite shellies/haustuer/#
+
+      user ShellyForHASS
+      topic readwrite shellies/#
+
+      user bsblan
+      topic readwrite BSB-LAN/#
+
+      user meter_kg_heizung_strom
+      topic readwrite tasmota/#
+
+      user hometablet
+      topic readwrite wallpanel/hometablet/#
+      topic readwrite homeassistant/#
+
+      user E46xT1kU
+      topic readwrite /gDa3tb/E46xT1kU/#
+      topic readwrite iot/gDa3tb/E46xT1kU/#
+      topic readwrite solarflow-hub/E46xT1kU/#
+
+      user stromzaehler
+      topic readwrite meter-kg-heizung-strom/#
+
+      user solarflowcontrol
+      topic read /gDa3tb/E46xT1kU/#
+      topic read meter-kg-heizung-strom/#
+      topic readwrite iot/gDa3tb/E46xT1kU/#
+      topic readwrite solarflow-hub/E46xT1kU/#

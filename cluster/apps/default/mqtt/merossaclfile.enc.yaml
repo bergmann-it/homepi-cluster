@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: mosquitto-merossaclfile
+    namespace: default
+data:
+    aclfile: ENC[AES256_GCM,data:eTySsecjlGmjqArfl2JG2Tu3l+NN1FfXRbzLrG5/bIIrucmfZgJJ9dW5NNUp7heSIpXZGjNN+xu8GHNxogtYCn4zxCcxmiHy+j4I8QW0RjnIV56GbcH9feKhCGs2uHgP1uNlGFy/rNfVw3yA1eQyQ9UFD8d34V9OL92dFcZIXAZqCQ==,iv:Uak7Ld0UdTz/lM79Q3xlrthT/3w5K5VCIBGi7V/4s3M=,tag:jBmZoEAQv0u3fMTlqIP2UA==,type:str]
+sops:
+    lastmodified: "2025-06-22T12:55:44Z"
+    mac: ENC[AES256_GCM,data:Lx4OvRm6Qnc0td123IbPr7Uukb3XKVfT8qGqJmQ+JA3z0GZq6qCHJ40Aioan2krB2VW0/BhmP9w9EJJ31ZceYEUVG0DXxzfUZ6J1FG/Nr4YjQAg2wpPEUHzsbBbpa6XcsLhwodnG2w8hqWxl2X4pkEs/K5wVKEiRtWKg5ivabak=,iv:o7TFUk1sLMtozYxNH/JKsdIHtoGVpiPGc6nQbbADnKI=,tag:5x3gJbV0zKbYlVDgEF0hMw==,type:str]
+    pgp:
+        - created_at: "2025-06-22T12:55:43Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA3E//P2MX8X/ARAAjDdhDzhmCDFd5CeaGekLXLhuhbrvVnW1om0X12bvGe3t
+            mdr0B7A4s0XpdQ5l+aKTd11BtjHEWDVRaR2NIXLuaxwuC719vWruoZHojf9AAhUl
+            YQzR+7NSIBQIkl3axzznskUMKtRErauwik3Sbw+q85s3kGhmoqcCgrgiRoEmNBL4
+            UtImGbAEf5k4x8cSps6tzh05wBwMtOC9pGRFFwc0G9L9Ra10Utm2BAmmLV4Omkfp
+            hfNBeNvy8eZ6QlenN0IOvaajqPOrdx1tO+0QfyM6pJVaM3GIOFb3mlSW7h2BRFK+
+            OsbGw6UloDmA/59WjcTH4xdqyseePJl1NaDHp/A+8/psY4PxzMosAWmlC636d1Kz
+            uCksU10QXzAepzUtqWMyPjXbs12o5W3pVJpqyKxI8qlDkJqHvDp2H2G3pBTi+3zF
+            OKyA3zfa6lgI647iSsx7bdGLRtp7MVNj6uy2+HalUNCngsH4E3LaSolYmZW1ZyuW
+            rEFElBsbVrKttMWpZmLGa4q3kM0s61nw/4+mG2a7FkpMz9XIbhyIL32Vh7LyAFNb
+            WmlCmq72/QqEDOvO0Ftp8WCTnboU7bCjoEjjkeLH0v462ObPNI9PTo6yJVQw6Ooe
+            y8D5pwzZRof7HiESOWeLi2Mf6O/8EChKETfwm1tnoYjJLnr79ydR8p6H5JF6S8jS
+            XAG5Gwk/U6+LAGIL8T8ywJvsr4yffbM112eJ77ahX8xg0LiPdemjeCPfSlci5G54
+            phTptAsspg52bcc1Zo4u5/v59P9vZyimyKV8LZs1RdsTYgzXVZFIHIOzu4Xd
+            =5fK/
+            -----END PGP MESSAGE-----
+          fp: 107F867893BC7485068D3EBFA4C6B059D1C55B1A
+    encrypted_regex: ^(data|stringData)$
+    version: 3.10.1
