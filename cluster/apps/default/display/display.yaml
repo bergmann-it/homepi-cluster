@@ -71,6 +71,7 @@ metadata:
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-dns
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 spec:
   tls:
     - secretName: display-tls
