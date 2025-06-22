@@ -43,11 +43,7 @@ spec:
         mountPath: "/etc/mosquitto/passwordfile"
         subPath: passwordfile
       - name: mqtttls
-        mountPath: "/etc/mosquitto/certs/tls.crt"
-        subPath: tls.crt
-      - name: mqtttls
-        mountPath: "/etc/mosquitto/certs/tls.key"
-        subPath: tls.key
+        mountPath: "/etc/mosquitto/certs"
     extraVolumes:
       - name: merossaclfile
         secret: 
