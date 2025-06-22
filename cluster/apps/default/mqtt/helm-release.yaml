@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
   values:
     service:
-      type: LoadBalancer
+      type: ClusterIP
     ports:
       mqtt:
         port: 1883
