@@ -36,6 +36,6 @@ spec:
     - unifistun
   routes:
     - services:
-        - name: unifi-stun
+        - name: unifi-ap
           port: 3478
 
