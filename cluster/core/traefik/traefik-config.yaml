@@ -18,6 +18,12 @@ data:
         address: ":8883/tcp"
       openmqtts:
         address: ":8884/tcp"
+      unificontroller:
+        address: ":8080/tcp"
+      unifidiscovery:
+        address: ":10001/tcp"
+      unifistun:
+        address: ":3478/udp"
       unificaptive:
         address: ":8881/tcp"
       unificaptives:

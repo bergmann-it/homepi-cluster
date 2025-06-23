@@ -19,6 +19,8 @@ spec:
       TZ: 'Europe/Berlin'
     service:
       port: 443
+    serviceAP:
+      type: ClusterIP
     ingress:
       enabled: true
       annotations:
