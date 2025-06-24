@@ -7,3 +7,4 @@ resources:
 - mqtt
 - raspberrymatic
 - hass
+- zigbee2mqtt

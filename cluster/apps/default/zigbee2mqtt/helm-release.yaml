@@ -1,0 +1,56 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: zigbee2mqtt
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: zigbee2mqtt
+      version: 9.29.0
+      sourceRef:
+        kind: HelmRepository
+        name: andrenarchy-charts
+        namespace: flux-system
+  values:
+    additionalVolumeMounts:
+      - name: usb
+        mountPath: /dev/ttyUSB-zigstar
+    additionalVolumes:
+      - name: usb
+        hostPath:
+          path: /dev/ttyUSB-zigstar
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+              - homepi
+    env:
+      TZ: 'Europe/Berlin'
+      ZIGBEE2MQTT_DATA: /data
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+        hosts:
+          - host: zigbee.bergmann.click
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+            - zigbee.bergmann.click
+            secretName: zigbee-cert
+    persistence:
+      data:
+        enabled: true
+        mountPath: /data
+        storageClass: "local-path"

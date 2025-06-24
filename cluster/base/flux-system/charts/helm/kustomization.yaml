@@ -10,3 +10,4 @@ resources:
 - k8sonlab-charts.yaml
 - RaspberryMatic-charts.yaml
 - hass-charts.yaml
+- andrenarchy-charts.yaml
