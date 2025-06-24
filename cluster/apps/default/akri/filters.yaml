@@ -2,7 +2,7 @@ apiVersion: akri.sh/v0
 kind: Configuration
 metadata:
   name: akri-zigstar
-  namespace: akri
+  namespace: default
 spec:
   capacity: 1
   discoveryHandler:
