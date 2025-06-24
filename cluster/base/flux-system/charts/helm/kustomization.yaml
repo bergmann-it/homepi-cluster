@@ -4,6 +4,7 @@ resources:
 - calinco-charts.yaml
 - metallb-charts.yaml
 - traefik-charts.yaml
+- akri-charts.yaml
 - jetstack-charts.yaml
 - cbergmann-charts.yaml
 - containeroo-charts.yaml

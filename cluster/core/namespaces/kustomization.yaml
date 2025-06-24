@@ -5,3 +5,4 @@ resources:
 - traefik.yaml
 - cattle-system.yaml
 - local-path-storage.yaml
+- akri.yaml
