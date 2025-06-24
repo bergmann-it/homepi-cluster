@@ -52,5 +52,7 @@ spec:
     persistence:
       data:
         enabled: true
+        accessMode: ReadWriteOnce
         mountPath: /data
+        size: 1Gi
         storageClass: "local-path"
