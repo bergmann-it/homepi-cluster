@@ -14,14 +14,6 @@ spec:
         kind: HelmRepository
         name: andrenarchy-charts
         namespace: flux-system
-  values:
-    additionalVolumeMounts:
-      - name: usb
-        mountPath: /dev/ttyUSB-zigstar
-    additionalVolumes:
-      - name: usb
-        hostPath:
-          path: /dev/ttyUSB-zigstar
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -56,3 +48,7 @@ spec:
         mountPath: /data
         size: 1Gi
         storageClass: "local-path"
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/ttyUSB-zigstar
