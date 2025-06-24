@@ -24,20 +24,11 @@ spec:
               operator: In
               values:
               - homepi
-    additionalVolumeMounts:
-      - name: usb
-        mountPath: /dev/ttyUSB-zigstar
-    additionalVolumes:
-      - name: usb
-        hostPath:
-          path: /dev/ttyUSB-zigstar
     resources:
       limits:
         akri.sh/akri-zigstar: "1"
       requests:
         akri.sh/akri-zigstar: "1"
-    securityContext:
-      privileged: true
     env:
       TZ: 'Europe/Berlin'
       ZIGBEE2MQTT_DATA: /data
