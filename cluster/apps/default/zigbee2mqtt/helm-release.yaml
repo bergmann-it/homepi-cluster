@@ -31,8 +31,6 @@ spec:
       - name: usb
         hostPath:
           path: /dev/ttyUSB-zigstar
-    securityContext:
-      privileged: true
     env:
       TZ: 'Europe/Berlin'
       ZIGBEE2MQTT_DATA: /data
