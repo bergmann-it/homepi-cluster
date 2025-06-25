@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: raspberrymatic
-      version: 3.71.12
+      version: 3.81.5.20250527
       sourceRef:
         kind: HelmRepository
         name: raspberrymatic-charts
@@ -18,5 +18,4 @@ spec:
     persistence:
       data:
         enabled: true
-        type: hostPath
-        hostPath: /var/opt/raspberrymatic
+        storageClass: "local-path"
