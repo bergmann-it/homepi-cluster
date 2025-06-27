@@ -18,6 +18,24 @@ spec:
     persistence:
       enabled: true
       storageClass: "local-path"
+    initContainers: []
+     - name: init-helios2n-cc
+       image: alpine/git
+       command: [ "/bin/sh", "-c" ]
+       args:
+       - |
+         git clone https://github.com/bergmann-it/helios2n-hass.git /git/helios2n-hass
+         cp -r /git/helios2n-hass/custom_components/helios2n/* /helios2n_cc
+         chown -R 1000:1000 /helios2n_cc/*
+       volumeMounts:
+       - name: helios2n-cc
+         mountPath: /helios2n_cc
+    additionalVolumes:
+     - name: helios2n-cc
+       emptyDir: {}
+    additionalMounts:
+     - mountPath: /config/custom_components/helios2n
+       name: helios2n-cc
     ingress:
       enabled: true
       annotations:
