@@ -18,7 +18,7 @@ spec:
     persistence:
       enabled: true
       storageClass: "local-path"
-    initContainers: []
+    initContainers:
      - name: init-helios2n-cc
        image: alpine/git
        command: [ "/bin/sh", "-c" ]
