@@ -90,66 +90,67 @@ spec:
       keyfile /etc/mosquitto/certs/tls.key
       listener 9090
       protocol websockets
-    acls: |-
-      user clb
-      topic readwrite #
+    authorization:
+      acls: |-
+        user clb
+        topic readwrite #
 
-      user ot-recorder
-      topic read owntracks/clb/#
+        user ot-recorder
+        topic read owntracks/clb/#
 
-      user homeassistant
-      topic read owntracks/clb/#
-      topic readwrite zwave/#
-      topic readwrite valetudo/zoe/#
-      topic readwrite zigbee2mqtt/#
-      topic readwrite homeassistant/#
-      topic readwrite shellies/#
-      topic readwrite wallpanel/#
-      topic readwrite tasmota/#
-      topic readwrite BSB-LAN/#
-      topic readwrite /appliance/#
-      topic readwrite /gDa3tb/#
-      topic readwrite iot/gDa3tb/#
-      topic readwrite solarflow-hub/#
+        user homeassistant
+        topic read owntracks/clb/#
+        topic readwrite zwave/#
+        topic readwrite valetudo/zoe/#
+        topic readwrite zigbee2mqtt/#
+        topic readwrite homeassistant/#
+        topic readwrite shellies/#
+        topic readwrite wallpanel/#
+        topic readwrite tasmota/#
+        topic readwrite BSB-LAN/#
+        topic readwrite /appliance/#
+        topic readwrite /gDa3tb/#
+        topic readwrite iot/gDa3tb/#
+        topic readwrite solarflow-hub/#
 
-      user valetudo_zoe
-      topic readwrite valetudo/zoe/#
-      topic readwrite homeassistant/#
+        user valetudo_zoe
+        topic readwrite valetudo/zoe/#
+        topic readwrite homeassistant/#
 
-      user zwavejs2mqtt
-      topic readwrite zwave/#
-      topic readwrite homeassistant/#
+        user zwavejs2mqtt
+        topic readwrite zwave/#
+        topic readwrite homeassistant/#
 
-      user zigbee2mqtt
-      topic readwrite zigbee2mqtt/#
-      topic readwrite homeassistant/#
+        user zigbee2mqtt
+        topic readwrite zigbee2mqtt/#
+        topic readwrite homeassistant/#
 
-      user shellyhaustuer
-      topic readwrite shellies/haustuer/#
+        user shellyhaustuer
+        topic readwrite shellies/haustuer/#
 
-      user ShellyForHASS
-      topic readwrite shellies/#
+        user ShellyForHASS
+        topic readwrite shellies/#
 
-      user bsblan
-      topic readwrite BSB-LAN/#
+        user bsblan
+        topic readwrite BSB-LAN/#
 
-      user meter_kg_heizung_strom
-      topic readwrite tasmota/#
+        user meter_kg_heizung_strom
+        topic readwrite tasmota/#
 
-      user hometablet
-      topic readwrite wallpanel/hometablet/#
-      topic readwrite homeassistant/#
+        user hometablet
+        topic readwrite wallpanel/hometablet/#
+        topic readwrite homeassistant/#
 
-      user E46xT1kU
-      topic readwrite /gDa3tb/E46xT1kU/#
-      topic readwrite iot/gDa3tb/E46xT1kU/#
-      topic readwrite solarflow-hub/E46xT1kU/#
+        user E46xT1kU
+        topic readwrite /gDa3tb/E46xT1kU/#
+        topic readwrite iot/gDa3tb/E46xT1kU/#
+        topic readwrite solarflow-hub/E46xT1kU/#
 
-      user stromzaehler
-      topic readwrite meter-kg-heizung-strom/#
+        user stromzaehler
+        topic readwrite meter-kg-heizung-strom/#
 
-      user solarflowcontrol
-      topic read /gDa3tb/E46xT1kU/#
-      topic read meter-kg-heizung-strom/#
-      topic readwrite iot/gDa3tb/E46xT1kU/#
-      topic readwrite solarflow-hub/E46xT1kU/#
+        user solarflowcontrol
+        topic read /gDa3tb/E46xT1kU/#
+        topic read meter-kg-heizung-strom/#
+        topic readwrite iot/gDa3tb/E46xT1kU/#
+        topic readwrite solarflow-hub/E46xT1kU/#
