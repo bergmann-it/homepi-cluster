@@ -154,3 +154,4 @@ spec:
         topic read meter-kg-heizung-strom/#
         topic readwrite iot/gDa3tb/E46xT1kU/#
         topic readwrite solarflow-hub/E46xT1kU/#
+        topic readwrite homeassistant/#
