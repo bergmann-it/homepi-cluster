@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: unifi
-      version: 0.2.15
+      version: 0.2.19
       sourceRef:
         kind: HelmRepository
         name: k8sonlab-charts
