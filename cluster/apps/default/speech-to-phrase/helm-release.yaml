@@ -16,13 +16,15 @@ spec:
         namespace: flux-system
   values:
     env:
-      TZ: 'Europe/Berlin'
-      HA_WEBSOCKET_URI: 'ws://hass.bergmann.click/api/websocket'
-      HA_TOKEN:
-        valueFrom:
-          secretKeyRef:
-            name: speechtophrase-secret
-            key: token
+    - name: TZ
+      value: 'Europe/Berlin'
+    - name: HA_WEBSOCKET_URI
+      value: 'wss://hass.bergmann.click/api/websocket'
+    - name: HA_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: speechtophrase-secret
+          key: token
     ingress:
       main:
         enabled: true
