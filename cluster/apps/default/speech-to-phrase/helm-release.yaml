@@ -24,16 +24,17 @@ spec:
             name: speechtophrase-secret
             key: token
     ingress:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-        traefik.ingress.kubernetes.io/router.entrypoints: web, websecure, unificaptive, unificaptives
-      hosts:
-        - host: speechtophrase.bergmann.click
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-          - speechtophrase.bergmann.click
-          secretName: speechtophrase-cert
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          traefik.ingress.kubernetes.io/router.entrypoints: web, websecure, unificaptive, unificaptives
+        hosts:
+          - host: speechtophrase.bergmann.click
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+            - speechtophrase.bergmann.click
+            secretName: speechtophrase-cert
