@@ -16,7 +16,8 @@ spec:
         namespace: flux-system
   values:
     env:
-      TZ: 'Europe/Berlin'
+     - name: TZ
+       value: Europe/Berlin
     persistence:
       enabled: true
       storageClass: "local-path"
