@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - legacy-proxy
 - unifi
-- display
 - mqtt
 - raspberrymatic
 - hass
