@@ -49,7 +49,7 @@ spec:
        targetPort: hmipcallback
        type: NodePort
        protocol: TCP
-       nodePort: 2010
+       nodePort: 32010
     ingress:
       enabled: true
       annotations:
