@@ -39,6 +39,10 @@ spec:
     additionalMounts:
      - mountPath: /config/custom_components/helios2n
        name: helios2n-cc
+    additionalPorts:
+     - name: hmipcallback
+       containerPort: 2010
+       protocol: TCP
     ingress:
       enabled: true
       annotations:
