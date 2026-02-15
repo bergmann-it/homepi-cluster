@@ -43,6 +43,13 @@ spec:
      - name: hmipcallback
        containerPort: 2010
        protocol: TCP
+    additionalServices: []
+     - name: hmipcallback
+       port: 2010
+       targetPort: hmipcallback
+       type: NodePort
+       protocol: TCP
+       nodePort: 2010
     ingress:
       enabled: true
       annotations:
