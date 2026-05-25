@@ -4,7 +4,7 @@ resources:
 - legacy-proxy
 - unifi
 - mqtt
-- raspberrymatic
+- openccu
 - hass
 - akri
 - zigbee2mqtt
