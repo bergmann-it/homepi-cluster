@@ -155,3 +155,7 @@ spec:
         topic readwrite iot/gDa3tb/E46xT1kU/#
         topic readwrite solarflow-hub/E46xT1kU/#
         topic readwrite homeassistant/#
+
+        user zendure
+        topic readwrite /gDa3tb/E46xT1kU/#
+        topic readwrite iot/gDa3tb/E46xT1kU/#
