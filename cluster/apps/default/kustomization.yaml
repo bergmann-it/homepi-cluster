@@ -8,5 +8,4 @@ resources:
 - hass
 - akri
 - zigbee2mqtt
-- solarflow
 - speech-to-phrase
