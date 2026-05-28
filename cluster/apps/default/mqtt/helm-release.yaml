@@ -91,7 +91,6 @@ spec:
       keyfile /etc/mosquitto/certs/tls.key
       listener 9090
       protocol websockets
-      acl_file /etc/mosquitto/aclfile
     authorization:
       acls: |-
         user clb
@@ -150,13 +149,6 @@ spec:
 
         user stromzaehler
         topic readwrite meter-kg-heizung-strom/#
-
-        user solarflowcontrol
-        topic read /gDa3tb/E46xT1kU/#
-        topic read meter-kg-heizung-strom/#
-        topic readwrite iot/gDa3tb/E46xT1kU/#
-        topic readwrite solarflow-hub/E46xT1kU/#
-        topic readwrite homeassistant/#
 
         user zendure
         topic readwrite /gDa3tb/E46xT1kU/#
