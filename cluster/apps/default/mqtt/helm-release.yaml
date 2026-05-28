@@ -143,7 +143,6 @@ spec:
         topic readwrite homeassistant/#
 
         user E46xT1kU
-        topic readwrite #
         topic readwrite /gDa3tb/E46xT1kU/#
         topic readwrite iot/gDa3tb/E46xT1kU/#
         topic readwrite solarflow-hub/E46xT1kU/#
@@ -152,6 +151,5 @@ spec:
         topic readwrite meter-kg-heizung-strom/#
 
         user zendure
-        topic readwrite #
         topic readwrite /gDa3tb/E46xT1kU/#
         topic readwrite iot/gDa3tb/E46xT1kU/#
