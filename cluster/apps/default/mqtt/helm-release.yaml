@@ -157,4 +157,6 @@ spec:
         user bleproxy
         topic readwrite ble-proxy/#
         topic readwrite scale/badog1/#
+        topic readwrite homeassistant/sensor/ble-scale-sync/#
+        topic readwrite homeassistant/sensor/ble-scale-sync-clemens/#
         topic readwrite homeassistant/sensor/ble-scale-sync-badog1/#
