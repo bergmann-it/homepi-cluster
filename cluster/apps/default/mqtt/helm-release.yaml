@@ -153,3 +153,6 @@ spec:
         user zendure
         topic readwrite /gDa3tb/E46xT1kU/#
         topic readwrite iot/gDa3tb/E46xT1kU/#
+
+        user bleproxy
+        topic readwrite ble-proxy/#
