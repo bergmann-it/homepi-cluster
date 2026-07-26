@@ -9,3 +9,4 @@ resources:
 - akri
 - zigbee2mqtt
 - speech-to-phrase
+- blescalesync
