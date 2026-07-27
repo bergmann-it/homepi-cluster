@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blescalesync-dpl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blescalesync
+  template:
+    metadata:
+      labels:
+        app: blescalesync
+    spec:
+      containers:
+      - name: blescalesync
+        image: ghcr.io/kristianp26/ble-scale-sync
+        volumeMounts:
+        - name: config
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+        env:
+        - name: CONTINUOUS_MODE
+          value: "true"
+        - name: BLESCALE_PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: blescale
+              key: passwd
+        volumes:
+        - name: config
+          configMap:
+            name: blescalesync 
+            namespace: default
