@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: blescalesync
   namespace: default
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
 data:
   # file-like keys
   config.yaml: |
@@ -24,7 +26,7 @@ data:
         device_id: proxy-og1
         topic_prefix: ble-proxy
         username: bleproxy
-        password: \${BLESCALE_PASSWD}
+        password: ${BLESCALE_PASSWD}
       scale_mac: A0:85:5C:A7:DE:11
     users:
       - name: Clemens
@@ -44,7 +46,7 @@ data:
         qos: 0
         retain: true
         username: bleproxy
-        password: \${BLESCALE_PASSWD}
+        password: ${BLESCALE_PASSWD}
         client_id: badog1
         ha_discovery: true
         ha_device_name: Waage Bad OG1
