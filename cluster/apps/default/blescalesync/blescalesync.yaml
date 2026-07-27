@@ -17,10 +17,6 @@ spec:
       containers:
       - name: blescalesync
         image: ghcr.io/kristianp26/ble-scale-sync
-        volumeMounts:
-        - name: config
-          mountPath: /app/config.yaml
-          subPath: config.yaml
         env:
         - name: CONTINUOUS_MODE
           value: "true"
@@ -30,7 +26,7 @@ spec:
               name: blescale
               key: passwd
         volumes:
-        - name: config
-          configMap:
-            name: blescalesync 
-            namespace: default
+        - name: blescalesync
+          type: configMap
+          mountPath: /app/config.yaml
+          subPath: config.yaml
