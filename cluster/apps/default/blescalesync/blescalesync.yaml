@@ -24,11 +24,9 @@ spec:
           valueFrom:
             secretKeyRef:
               name: blescale
-              namespace: default
               key: passwd
         volumes:
         - name: blescalesync
-          namespace: default
           type: configMap
           mountPath: /app/config.yaml
           subPath: config.yaml
