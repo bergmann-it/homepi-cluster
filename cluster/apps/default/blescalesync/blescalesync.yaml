@@ -6,17 +6,12 @@ metadata:
   namespace: default
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: blescalesync
   template:
-    metadata:
-      labels:
-        app: blescalesync
     spec:
       containers:
       - name: blescalesync
         image: ghcr.io/kristianp26/ble-scale-sync
+        imagePullPolicy: IfNotPresent
         env:
         - name: CONTINUOUS_MODE
           value: "true"
