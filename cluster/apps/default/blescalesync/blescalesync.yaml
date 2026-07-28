@@ -6,7 +6,13 @@ metadata:
   namespace: default
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: blescalesync
   template:
+    metadata:
+      labels:
+        app: blescalesync
     spec:
       containers:
       - name: blescalesync
@@ -18,10 +24,10 @@ spec:
         - name: BLESCALE_PASSWD
           valueFrom:
             secretKeyRef:
-              name: blescale
+              name: blescalesync-secret
               key: passwd
         volumes:
-        - name: blescalesync
+        - name: blescalesync-config
           type: configMap
           mountPath: /app/config.yaml
           subPath: config.yaml
