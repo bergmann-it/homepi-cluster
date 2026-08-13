@@ -26,8 +26,11 @@ spec:
             secretKeyRef:
               name: blescalesync-secret
               key: passwd
-        volumes:
-        - name: blescalesync-config
-          type: configMap
+        volumeMounts:
+        - name: config-volume
           mountPath: /app/config.yaml
           subPath: config.yaml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: blescalesync-config
