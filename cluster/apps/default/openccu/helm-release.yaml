@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: openccu
-      version: 3.89.8
+      version: 3.89.11
       sourceRef:
         kind: HelmRepository
         name: openccu-charts
