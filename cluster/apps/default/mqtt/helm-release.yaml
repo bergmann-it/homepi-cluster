@@ -129,6 +129,9 @@ spec:
         user shellyhaustuer
         topic readwrite shellies/haustuer/#
 
+        user shellyhaustuermieter
+        topic readwrite shellies/haustuermieter/#
+
         user ShellyForHASS
         topic readwrite shellies/#
 
