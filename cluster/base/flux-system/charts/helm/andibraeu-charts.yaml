@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: cbergmann-charts
+  name: andibraeu-charts
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://cbergmann.gitlab.io/helm-charts
+  url: https://andibraeu.github.io/helmcharts/
   timeout: 2m
