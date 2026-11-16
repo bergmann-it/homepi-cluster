@@ -9,5 +9,5 @@ spec:
   dnsNames:
     - mqtt.bergmann.click
   issuerRef:
-    name: letsencrypt-dns
+    name: letsencrypt-prod
     kind: ClusterIssuer
